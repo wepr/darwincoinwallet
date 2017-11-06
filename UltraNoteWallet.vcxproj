@@ -1,0 +1,1904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{68D09146-38FC-300B-AD81-5151CFDFD73B}</ProjectGuid>
+    <RootNamespace></RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="Configuration">
+    <PlatformToolset>v140</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="Configuration">
+    <PlatformToolset>v140</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  </ImportGroup>
+  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\</OutDir>
+    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\</IntDir>
+    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">false</LinkIncremental>
+    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\</OutDir>
+    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\</IntDir>
+    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;.;libqrencode;src;cryptonote\src\Common;cryptonote\src;cryptonote\src\CryptoNoteCore;cryptonote\src\crypto;cryptonote\include;cryptonote\src\Platform\msc;cryptonote\src\Platform\msc\sys;cryptonote\src\Serialization;cryptonote\src\Logging;cryptonote\src\NodeRpcProxy;cryptonote\src\CryptoNoteProtocol;cryptonote\src\Rpc;cryptonote\src\P2p;cryptonote\src\System;cryptonote\src\InProcessNode;cryptonote\src\BlockchainExplorer;cryptonote\src\WalletLegacy;cryptonote\src\Wallet;cryptonote\src\Transfers;src\gui;libqrencode\tests;cryptonote\external\miniupnpc;cryptonote\src\HTTP;cryptonote/build/release/version;cryptonote\src\Platform\mingw;cryptonote\src\Daemon;cryptonote\src\JsonRpcServer;cryptonote\src\Miner;cryptonote\src\PaymentGate;cryptonote\src\PaymentGateService;cryptonote\src\SimpleWallet;cryptonote\tests\CoreTests;cryptonote\tests\TestGenerator;cryptonote\tests\crypto;cryptonote\tests;cryptonote\tests\IntegrationTestLib;cryptonote\tests\IntegrationTests;cryptonote\tests\PerformanceTests;cryptonote\tests\TransfersTests;cryptonote\tests\UnitTests;cryptonote\external\gtest\samples;cryptonote\external\gtest\test;cryptonote\src\Platform\Linux\System;cryptonote\src\Platform\OSX\System;cryptonote\external\gtest\xcode\Samples\FrameworkSample;$(QTDIR)\include;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtCore;release;$(QTDIR)\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>release\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(QTDIR)\lib\qtmain.lib;shell32.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;.;libqrencode;src;cryptonote\src\Common;cryptonote\src;cryptonote\src\CryptoNoteCore;cryptonote\src\crypto;cryptonote\include;cryptonote\src\Platform\msc;cryptonote\src\Platform\msc\sys;cryptonote\src\Serialization;cryptonote\src\Logging;cryptonote\src\NodeRpcProxy;cryptonote\src\CryptoNoteProtocol;cryptonote\src\Rpc;cryptonote\src\P2p;cryptonote\src\System;cryptonote\src\InProcessNode;cryptonote\src\BlockchainExplorer;cryptonote\src\WalletLegacy;cryptonote\src\Wallet;cryptonote\src\Transfers;src\gui;libqrencode\tests;cryptonote\external\miniupnpc;cryptonote\src\HTTP;cryptonote/build/release/version;cryptonote\src\Platform\mingw;cryptonote\src\Daemon;cryptonote\src\JsonRpcServer;cryptonote\src\Miner;cryptonote\src\PaymentGate;cryptonote\src\PaymentGateService;cryptonote\src\SimpleWallet;cryptonote\tests\CoreTests;cryptonote\tests\TestGenerator;cryptonote\tests\crypto;cryptonote\tests;cryptonote\tests\IntegrationTestLib;cryptonote\tests\IntegrationTests;cryptonote\tests\PerformanceTests;cryptonote\tests\TransfersTests;cryptonote\tests\UnitTests;cryptonote\external\gtest\samples;cryptonote\external\gtest\test;cryptonote\src\Platform\Linux\System;cryptonote\src\Platform\OSX\System;cryptonote\external\gtest\xcode\Samples\FrameworkSample;$(QTDIR)\include;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtCore;debug;$(QTDIR)\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>debug\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(QTDIR)\lib\qtmaind.lib;shell32.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_GUI_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\gui\AboutDialog.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\Account.cpp" />
+    <ClCompile Include="src\gui\AddressBookDialog.cpp" />
+    <ClCompile Include="src\gui\AddressBookFrame.cpp" />
+    <ClCompile Include="src\gui\AddressBookModel.cpp" />
+    <ClCompile Include="src\AliasProvider.cpp" />
+    <ClCompile Include="src\gui\AnimatedLabel.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\ArrayRefTests.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\ArrayViewTests.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\Base58.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTestLib\BaseFunctionalTests.cpp" />
+    <ClCompile Include="cryptonote\src\Serialization\BinaryInputStreamSerializer.cpp" />
+    <ClCompile Include="cryptonote\src\Serialization\BinaryOutputStreamSerializer.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\BlockIndex.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\BlockReward.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\BlockReward.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\BlockValidation.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\Blockchain.cpp" />
+    <ClCompile Include="cryptonote\src\BlockchainExplorer\BlockchainExplorer.cpp" />
+    <ClCompile Include="cryptonote\src\BlockchainExplorer\BlockchainExplorerDataBuilder.cpp" />
+    <ClCompile Include="cryptonote\src\BlockchainExplorer\BlockchainExplorerErrors.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\BlockchainIndices.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\BlockchainMessages.cpp" />
+    <ClCompile Include="cryptonote\src\Miner\BlockchainMonitor.cpp" />
+    <ClCompile Include="cryptonote\src\Transfers\BlockchainSynchronizer.cpp" />
+    <ClCompile Include="cryptonote\src\Common\BlockingQueue.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\BlockingQueue.cpp" />
+    <ClCompile Include="cryptonote\build\release\CMakeFiles\3.5.1\CompilerIdC\CMakeCCompilerId.c" />
+    <ClCompile Include="cryptonote\build\release\CMakeFiles\3.5.1\CompilerIdCXX\CMakeCXXCompilerId.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\Chacha8.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\ChainSplit1.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\ChainSwitch1.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\Chaingen.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\Chaingen001.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\ChaingenMain.cpp" />
+    <ClCompile Include="src\gui\ChangePasswordDialog.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\Checkpoints.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\Checkpoints.cpp" />
+    <ClCompile Include="cryptonote\src\Common\CommandLine.cpp" />
+    <ClCompile Include="src\CommandLineParser.cpp" />
+    <ClCompile Include="cryptonote\src\Logging\CommonLogger.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGateService\ConfigurationManager.cpp" />
+    <ClCompile Include="cryptonote\src\ConnectivityTool\ConnectivityTool.cpp" />
+    <ClCompile Include="cryptonote\src\Common\ConsoleHandler.cpp" />
+    <ClCompile Include="cryptonote\src\Logging\ConsoleLogger.cpp" />
+    <ClCompile Include="cryptonote\src\Common\ConsoleTools.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\OSX\System\Context.c" />
+    <ClCompile Include="cryptonote\src\System\ContextGroup.cpp" />
+    <ClCompile Include="cryptonote\tests\System\ContextGroupTests.cpp" />
+    <ClCompile Include="cryptonote\src\System\ContextGroupTimeout.cpp" />
+    <ClCompile Include="cryptonote\tests\System\ContextGroupTimeoutTests.cpp" />
+    <ClCompile Include="cryptonote\tests\System\ContextTests.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\Core.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\CoreConfig.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\CryptoNoteBasic.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\CryptoNoteBasicImpl.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\CryptoNoteFormatUtils.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteProtocol\CryptoNoteProtocolHandler.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\CryptoNoteSerialization.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\CryptoNoteTools.cpp" />
+    <ClCompile Include="src\CryptoNoteWrapper.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\Currency.cpp" />
+    <ClCompile Include="src\CurrencyAdapter.cpp" />
+    <ClCompile Include="cryptonote\src\Daemon\Daemon.cpp" />
+    <ClCompile Include="cryptonote\src\Daemon\DaemonCommandsHandler.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\DecomposeAmountIntoDigits.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\Deposit.cpp" />
+    <ClCompile Include="src\gui\DepositDetailsDialog.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\DepositIndex.cpp" />
+    <ClCompile Include="src\gui\DepositListModel.cpp" />
+    <ClCompile Include="src\gui\DepositModel.cpp" />
+    <ClCompile Include="src\gui\DepositsFrame.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\Difficulty.cpp" />
+    <ClCompile Include="cryptonote\tests\Difficulty\Difficulty.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Linux\System\Dispatcher.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\OSX\System\Dispatcher.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Windows\System\Dispatcher.cpp" />
+    <ClCompile Include="cryptonote\tests\System\DispatcherTests.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\DoubleSpend.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Linux\System\ErrorMessage.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\OSX\System\ErrorMessage.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Windows\System\ErrorMessage.cpp" />
+    <ClCompile Include="cryptonote\tests\System\ErrorMessageTests.cpp" />
+    <ClCompile Include="cryptonote\src\System\Event.cpp" />
+    <ClCompile Include="cryptonote\src\System\EventLock.cpp" />
+    <ClCompile Include="cryptonote\tests\System\EventLockTests.cpp" />
+    <ClCompile Include="cryptonote\tests\System\EventTests.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\EventWaiter.cpp" />
+    <ClCompile Include="src\gui\ExitWidget.cpp" />
+    <ClCompile Include="cryptonote\src\Logging\FileLogger.cpp" />
+    <ClCompile Include="cryptonote\tests\HashTarget.cpp" />
+    <ClCompile Include="cryptonote\src\Rpc\HttpClient.cpp" />
+    <ClCompile Include="cryptonote\src\HTTP\HttpParser.cpp" />
+    <ClCompile Include="cryptonote\src\HTTP\HttpParserErrorCodes.cpp" />
+    <ClCompile Include="cryptonote\src\HTTP\HttpRequest.cpp" />
+    <ClCompile Include="cryptonote\src\HTTP\HttpResponse.cpp" />
+    <ClCompile Include="cryptonote\src\Rpc\HttpServer.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\IBlock.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\ICoreStub.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\ICryptoNoteProtocolQueryStub.cpp" />
+    <ClCompile Include="cryptonote\src\Common\IInputStream.cpp" />
+    <ClCompile Include="cryptonote\src\Logging\ILogger.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\INodeStubs.cpp" />
+    <ClCompile Include="cryptonote\src\Common\IOutputStream.cpp" />
+    <ClCompile Include="cryptonote\src\P2p\IP2pNodeInternal.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\ITimeProvider.cpp" />
+    <ClCompile Include="src\gui\ImportKeyDialog.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTestLib\InProcTestNode.cpp" />
+    <ClCompile Include="cryptonote\src\InProcessNode\InProcessNode.cpp" />
+    <ClCompile Include="cryptonote\src\InProcessNode\InProcessNodeErrors.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\IntegerOverflow.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTests\IntegrationTests.cpp" />
+    <ClCompile Include="cryptonote\src\System\InterruptedException.cpp" />
+    <ClCompile Include="cryptonote\src\System\Ipv4Address.cpp" />
+    <ClCompile Include="cryptonote\tests\System\Ipv4AddressTests.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Linux\System\Ipv4Resolver.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\OSX\System\Ipv4Resolver.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Windows\System\Ipv4Resolver.cpp" />
+    <ClCompile Include="cryptonote\tests\System\Ipv4ResolverTests.cpp" />
+    <ClCompile Include="cryptonote\src\Serialization\JsonInputStreamSerializer.cpp" />
+    <ClCompile Include="cryptonote\src\Serialization\JsonInputValueSerializer.cpp" />
+    <ClCompile Include="cryptonote\src\Serialization\JsonOutputStreamSerializer.cpp" />
+    <ClCompile Include="cryptonote\src\Rpc\JsonRpc.cpp" />
+    <ClCompile Include="cryptonote\src\JsonRpcServer\JsonRpcServer.cpp" />
+    <ClCompile Include="cryptonote\src\Common\JsonValue.cpp" />
+    <ClCompile Include="cryptonote\src\Serialization\KVBinaryInputStreamSerializer.cpp" />
+    <ClCompile Include="cryptonote\src\Serialization\KVBinaryOutputStreamSerializer.cpp" />
+    <ClCompile Include="cryptonote\src\WalletLegacy\KeysStorage.cpp" />
+    <ClCompile Include="cryptonote\src\Wallet\LegacyKeysImporter.cpp" />
+    <ClCompile Include="cryptonote\src\P2p\LevinProtocol.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTestLib\Logger.cpp" />
+    <ClCompile Include="src\LoggerAdapter.cpp" />
+    <ClCompile Include="cryptonote\src\Logging\LoggerGroup.cpp" />
+    <ClCompile Include="cryptonote\src\Logging\LoggerManager.cpp" />
+    <ClCompile Include="cryptonote\src\Logging\LoggerMessage.cpp" />
+    <ClCompile Include="cryptonote\src\Logging\LoggerRef.cpp" />
+    <ClCompile Include="src\gui\MainWindow.cpp" />
+    <ClCompile Include="cryptonote\src\Common\Math.cpp" />
+    <ClCompile Include="cryptonote\src\Common\MemoryInputStream.cpp" />
+    <ClCompile Include="cryptonote\src\Serialization\MemoryStream.cpp" />
+    <ClCompile Include="src\gui\Message.cpp" />
+    <ClCompile Include="src\gui\MessageAddressFrame.cpp" />
+    <ClCompile Include="src\gui\MessageDetailsDialog.cpp" />
+    <ClCompile Include="src\gui\MessagesFrame.cpp" />
+    <ClCompile Include="src\gui\MessagesModel.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\Miner.cpp" />
+    <ClCompile Include="cryptonote\src\Miner\Miner.cpp" />
+    <ClCompile Include="src\Miner.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\MinerConfig.cpp" />
+    <ClCompile Include="cryptonote\src\Miner\MinerManager.cpp" />
+    <ClCompile Include="cryptonote\src\Miner\MiningConfig.cpp" />
+    <ClCompile Include="src\gui\MiningFrame.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\MulDiv.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTests\MultiVersion.cpp" />
+    <ClCompile Include="cryptonote\src\P2p\NetNode.cpp" />
+    <ClCompile Include="cryptonote\src\P2p\NetNodeConfig.cpp" />
+    <ClCompile Include="src\gui\NewAddressDialog.cpp" />
+    <ClCompile Include="src\gui\NewPasswordDialog.cpp" />
+    <ClCompile Include="src\gui\NewPoolDialog.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTests\Node.cpp" />
+    <ClCompile Include="src\NodeAdapter.cpp" />
+    <ClCompile Include="cryptonote\src\NodeRpcProxy\NodeErrors.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGate\NodeFactory.cpp" />
+    <ClCompile Include="cryptonote\src\NodeRpcProxy\NodeRpcProxy.cpp" />
+    <ClCompile Include="cryptonote\tests\NodeRpcProxyTests\NodeRpcProxyTests.cpp" />
+    <ClCompile Include="cryptonote\tests\System\OperationTimeoutTests.cpp" />
+    <ClCompile Include="src\gui\OverviewFrame.cpp" />
+    <ClCompile Include="cryptonote\src\P2p\P2pConnectionProxy.cpp" />
+    <ClCompile Include="cryptonote\src\P2p\P2pContext.cpp" />
+    <ClCompile Include="cryptonote\src\P2p\P2pContextOwner.cpp" />
+    <ClCompile Include="cryptonote\src\P2p\P2pInterfaces.cpp" />
+    <ClCompile Include="cryptonote\src\P2p\P2pNode.cpp" />
+    <ClCompile Include="cryptonote\src\P2p\P2pNodeConfig.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\ParseAmount.cpp" />
+    <ClCompile Include="cryptonote\src\SimpleWallet\PasswordContainer.cpp" />
+    <ClCompile Include="src\gui\PasswordDialog.cpp" />
+    <ClCompile Include="cryptonote\src\Common\PathTools.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGateService\PaymentGateService.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\PaymentGateTests.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGateService\PaymentServiceConfiguration.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGate\PaymentServiceJsonRpcMessages.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGate\PaymentServiceJsonRpcServer.cpp" />
+    <ClCompile Include="src\gui\PoolModel.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTestLib\Process.cpp" />
+    <ClCompile Include="src\gui\QRLabel.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTestLib\RPCTestNode.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\RandomOuts.cpp" />
+    <ClCompile Include="src\gui\ReceiveFrame.cpp" />
+    <ClCompile Include="src\gui\RecentTransactionsModel.cpp" />
+    <ClCompile Include="cryptonote\tests\System\RemoteContextTests.cpp" />
+    <ClCompile Include="cryptonote\src\System\RemoteEventLock.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\RingSignature.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGateService\RpcNodeConfiguration.cpp" />
+    <ClCompile Include="cryptonote\src\Rpc\RpcServer.cpp" />
+    <ClCompile Include="cryptonote\src\Rpc\RpcServerConfig.cpp" />
+    <ClCompile Include="cryptonote\src\Common\ScopeExit.cpp" />
+    <ClCompile Include="src\gui\SendFrame.cpp" />
+    <ClCompile Include="src\gui\SendMessageFrame.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\Serialization.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\SerializationKV.cpp" />
+    <ClCompile Include="cryptonote\src\Serialization\SerializationOverloads.cpp" />
+    <ClCompile Include="src\Settings.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\Shuffle.cpp" />
+    <ClCompile Include="cryptonote\src\Common\SignalHandler.cpp" />
+    <ClCompile Include="src\SignalHandler.cpp" />
+    <ClCompile Include="cryptonote\src\SimpleWallet\SimpleWallet.cpp" />
+    <ClCompile Include="src\gui\SortedDepositModel.cpp" />
+    <ClCompile Include="src\gui\SortedMessagesModel.cpp" />
+    <ClCompile Include="src\gui\SortedTransactionsModel.cpp" />
+    <ClCompile Include="cryptonote\src\Common\StdInputStream.cpp" />
+    <ClCompile Include="cryptonote\src\Common\StdOutputStream.cpp" />
+    <ClCompile Include="src\StratumClient.cpp" />
+    <ClCompile Include="cryptonote\src\Logging\StreamLogger.cpp" />
+    <ClCompile Include="cryptonote\src\Common\StreamTools.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\StringBufferTests.cpp" />
+    <ClCompile Include="cryptonote\src\Common\StringInputStream.cpp" />
+    <ClCompile Include="cryptonote\src\Common\StringOutputStream.cpp" />
+    <ClCompile Include="cryptonote\src\Common\StringTools.cpp" />
+    <ClCompile Include="cryptonote\src\Common\StringView.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\StringViewTests.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\SwappedMap.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\SwappedVector.cpp" />
+    <ClCompile Include="cryptonote\src\Transfers\SynchronizationState.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Linux\System\TcpConnection.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\OSX\System\TcpConnection.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Windows\System\TcpConnection.cpp" />
+    <ClCompile Include="cryptonote\tests\System\TcpConnectionTests.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Linux\System\TcpConnector.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\OSX\System\TcpConnector.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Windows\System\TcpConnector.cpp" />
+    <ClCompile Include="cryptonote\tests\System\TcpConnectorTests.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Linux\System\TcpListener.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\OSX\System\TcpListener.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Windows\System\TcpListener.cpp" />
+    <ClCompile Include="cryptonote\tests\System\TcpListenerTests.cpp" />
+    <ClCompile Include="cryptonote\src\System\TcpStream.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestBcS.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestBlockchainExplorer.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestBlockchainGenerator.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestCryptonoteBasic.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestCurrency.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestDepositIndex.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestFormatUtils.cpp" />
+    <ClCompile Include="cryptonote\tests\TestGenerator\TestGenerator.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestInprocessNode.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestJsonValue.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestMessageQueue.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTestLib\TestNetwork.cpp" />
+    <ClCompile Include="cryptonote\tests\TransfersTests\TestNodeRpcProxy.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestPath.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestPeerlist.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestProtocolPack.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestTransactionPoolDetach.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestTransfers.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestTransfersConsumer.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestTransfersContainer.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestTransfersContainerKeyImage.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestTransfersSubscription.cpp" />
+    <ClCompile Include="cryptonote\tests\TransfersTests\TestTxPoolSync.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestUpgradeDetector.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestWallet.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTestLib\TestWalletLegacy.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestWalletLegacy.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestWalletService.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TestWalletUserTransactionsCache.cpp" />
+    <ClCompile Include="cryptonote\tests\TransfersTests\Tests.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Linux\System\Timer.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\OSX\System\Timer.cpp" />
+    <ClCompile Include="cryptonote\src\Platform\Windows\System\Timer.cpp" />
+    <ClCompile Include="cryptonote\tests\System\TimerTests.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\Transaction.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TransactionApi.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TransactionApiHelpers.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\TransactionBuilder.cpp" />
+    <ClCompile Include="src\gui\TransactionDetailsDialog.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\TransactionExtra.cpp" />
+    <ClCompile Include="src\gui\TransactionFrame.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\TransactionPool.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\TransactionPool.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\TransactionPrefixImpl.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\TransactionTests.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\TransactionUtils.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\TransactionValidation.cpp" />
+    <ClCompile Include="src\gui\TransactionsFrame.cpp" />
+    <ClCompile Include="src\gui\TransactionsListModel.cpp" />
+    <ClCompile Include="src\gui\TransactionsModel.cpp" />
+    <ClCompile Include="src\gui\TransferFrame.cpp" />
+    <ClCompile Include="cryptonote\src\Transfers\TransfersConsumer.cpp" />
+    <ClCompile Include="cryptonote\src\Transfers\TransfersContainer.cpp" />
+    <ClCompile Include="cryptonote\src\Transfers\TransfersSubscription.cpp" />
+    <ClCompile Include="cryptonote\src\Transfers\TransfersSynchronizer.cpp" />
+    <ClCompile Include="cryptonote\tests\CoreTests\Upgrade.cpp" />
+    <ClCompile Include="cryptonote\src\CryptoNoteCore\UpgradeDetector.cpp" />
+    <ClCompile Include="cryptonote\src\Common\Util.cpp" />
+    <ClCompile Include="cryptonote\src\Common\VectorOutputStream.cpp" />
+    <ClCompile Include="src\gui\VisibleMessagesModel.cpp" />
+    <ClCompile Include="src\WalletAdapter.cpp" />
+    <ClCompile Include="cryptonote\src\Wallet\WalletAsyncContextCounter.cpp" />
+    <ClCompile Include="cryptonote\src\Wallet\WalletErrors.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGate\WalletFactory.cpp" />
+    <ClCompile Include="cryptonote\src\Wallet\WalletGreen.cpp" />
+    <ClCompile Include="cryptonote\src\WalletLegacy\WalletHelper.cpp" />
+    <ClCompile Include="cryptonote\src\WalletLegacy\WalletLegacy.cpp" />
+    <ClCompile Include="cryptonote\src\WalletLegacy\WalletLegacySerialization.cpp" />
+    <ClCompile Include="cryptonote\src\WalletLegacy\WalletLegacySerializer.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTests\WalletLegacyTests.cpp" />
+    <ClCompile Include="cryptonote\src\Wallet\WalletRpcServer.cpp" />
+    <ClCompile Include="cryptonote\src\Wallet\WalletSerialization.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGate\WalletService.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGate\WalletServiceErrorCategory.cpp" />
+    <ClCompile Include="cryptonote\src\WalletLegacy\WalletTransactionSender.cpp" />
+    <ClCompile Include="cryptonote\src\WalletLegacy\WalletUnconfirmedTransactions.cpp" />
+    <ClCompile Include="cryptonote\src\WalletLegacy\WalletUserTransactionsCache.cpp" />
+    <ClCompile Include="cryptonote\src\Wallet\WalletUtils.cpp" />
+    <ClCompile Include="src\Worker.cpp" />
+    <ClCompile Include="libqrencode\bitstream.c" />
+    <ClCompile Include="cryptonote\src\crypto\blake256.c" />
+    <ClCompile Include="cryptonote\src\crypto\chacha.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\connecthostport.c" />
+    <ClCompile Include="libqrencode\tests\create_frame_pattern.c" />
+    <ClCompile Include="libqrencode\tests\create_mqr_frame_pattern.c" />
+    <ClCompile Include="cryptonote\tests\crypto\crypto-ops-data.c" />
+    <ClCompile Include="cryptonote\tests\crypto\crypto-ops.c" />
+    <ClCompile Include="cryptonote\tests\crypto\crypto.cpp" />
+    <ClCompile Include="libqrencode\tests\decoder.c" />
+    <ClCompile Include="cryptonote\build\release\CMakeFiles\feature_tests.c" />
+    <ClCompile Include="cryptonote\build\release\CMakeFiles\feature_tests.cxx" />
+    <ClCompile Include="cryptonote\src\crypto\groestl.c" />
+    <ClCompile Include="cryptonote\external\gtest\fused-src\gtest\gtest-all.cc" />
+    <ClCompile Include="cryptonote\external\gtest\src\gtest-all.cc" />
+    <ClCompile Include="cryptonote\external\gtest\src\gtest-death-test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-death-test_ex_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-death-test_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\src\gtest-filepath.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-filepath_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-linked_ptr_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-listener_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-message_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-options_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-param-test2_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-param-test_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\src\gtest-port.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-port_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\src\gtest-printers.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-printers_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\src\gtest-test-part.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-test-part_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-tuple_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\src\gtest-typed-test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-typed-test2_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-typed-test_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest-unittest-api_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\src\gtest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\codegear\gtest_all.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_all_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_break_on_failure_unittest_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_catch_exceptions_test_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_color_test_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_env_var_test_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_environment_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_filter_unittest_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_help_test_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\codegear\gtest_link.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_list_tests_unittest_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\fused-src\gtest\gtest_main.cc" />
+    <ClCompile Include="cryptonote\external\gtest\src\gtest_main.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_main_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_no_test_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_output_test_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_pred_impl_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_premature_exit_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_prod_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_repeat_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_shuffle_test_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_sole_header_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_stress_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_throw_on_failure_ex_test.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_throw_on_failure_test_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_uninitialized_test_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_xml_outfile1_test_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_xml_outfile2_test_.cc" />
+    <ClCompile Include="cryptonote\external\gtest\test\gtest_xml_output_unittest_.cc" />
+    <ClCompile Include="cryptonote\src\crypto\hash-extra-blake.c" />
+    <ClCompile Include="cryptonote\src\crypto\hash-extra-groestl.c" />
+    <ClCompile Include="cryptonote\src\crypto\hash-extra-jh.c" />
+    <ClCompile Include="cryptonote\src\crypto\hash-extra-skein.c" />
+    <ClCompile Include="cryptonote\tests\crypto\hash.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\igd_desc_parse.c" />
+    <ClCompile Include="cryptonote\src\crypto\jh.c" />
+    <ClCompile Include="cryptonote\src\Miner\main.cpp" />
+    <ClCompile Include="cryptonote\src\PaymentGateService\main.cpp" />
+    <ClCompile Include="cryptonote\tests\Hash\main.cpp" />
+    <ClCompile Include="cryptonote\tests\IntegrationTests\main.cpp" />
+    <ClCompile Include="cryptonote\tests\PerformanceTests\main.cpp" />
+    <ClCompile Include="cryptonote\tests\System\main.cpp" />
+    <ClCompile Include="cryptonote\tests\TransfersTests\main.cpp" />
+    <ClCompile Include="cryptonote\tests\UnitTests\main.cpp" />
+    <ClCompile Include="cryptonote\tests\crypto\main.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="libqrencode\mask.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\minihttptestserver.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\minisoap.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\minissdpc.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\miniupnpc.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\miniupnpcmodule.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\miniwget.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\minixml.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\minixmlvalid.c" />
+    <ClCompile Include="libqrencode\mmask.c" />
+    <ClCompile Include="libqrencode\mqrspec.c" />
+    <ClCompile Include="cryptonote\src\crypto\oaes_lib.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\portlistingparse.c" />
+    <ClCompile Include="cryptonote\external\gtest\test\production.cc" />
+    <ClCompile Include="libqrencode\tests\prof_qrencode.c" />
+    <ClCompile Include="libqrencode\tests\pthread_qrencode.c" />
+    <ClCompile Include="libqrencode\qrenc.c" />
+    <ClCompile Include="libqrencode\qrencode.c" />
+    <ClCompile Include="libqrencode\qrinput.c" />
+    <ClCompile Include="libqrencode\qrspec.c" />
+    <ClCompile Include="cryptonote\tests\crypto\random.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\receivedata.c" />
+    <ClCompile Include="libqrencode\rscode.c" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample1.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample10_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample1_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample2.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample2_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample3_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample4.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample4_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample5_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample6_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample7_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample8_unittest.cc" />
+    <ClCompile Include="cryptonote\external\gtest\samples\sample9_unittest.cc" />
+    <ClCompile Include="cryptonote\src\crypto\skein.c" />
+    <ClCompile Include="cryptonote\src\crypto\slow-hash.c" />
+    <ClCompile Include="cryptonote\src\crypto\slow-hash.cpp" />
+    <ClCompile Include="libqrencode\split.c" />
+    <ClCompile Include="libqrencode\tests\test_bitstream.c" />
+    <ClCompile Include="libqrencode\tests\test_estimatebit.c" />
+    <ClCompile Include="libqrencode\tests\test_mask.c" />
+    <ClCompile Include="libqrencode\tests\test_mmask.c" />
+    <ClCompile Include="libqrencode\tests\test_monkey.c" />
+    <ClCompile Include="libqrencode\tests\test_mqrspec.c" />
+    <ClCompile Include="libqrencode\tests\test_qrencode.c" />
+    <ClCompile Include="libqrencode\tests\test_qrinput.c" />
+    <ClCompile Include="libqrencode\tests\test_qrspec.c" />
+    <ClCompile Include="libqrencode\tests\test_rs.c" />
+    <ClCompile Include="libqrencode\tests\test_split.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\testigddescparse.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\testminiwget.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\testminixml.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\testupnpreplyparse.c" />
+    <ClCompile Include="cryptonote\src\crypto\tree-hash.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\upnpc.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\upnpcommands.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\upnperrors.c" />
+    <ClCompile Include="cryptonote\external\miniupnpc\upnpreplyparse.c" />
+    <ClCompile Include="libqrencode\tests\view_qrcode.c" />
+    <ClCompile Include="cryptonote\external\gtest\xcode\Samples\FrameworkSample\widget.cc" />
+    <ClCompile Include="cryptonote\external\gtest\xcode\Samples\FrameworkSample\widget_test.cc" />
+    <ClCompile Include="cryptonote\external\miniupnpc\wingenminiupnpcstrings.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="src\gui\AboutDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\AboutDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\AboutDialog.h -o release\moc_AboutDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/AboutDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_AboutDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\AboutDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\AboutDialog.h -o debug\moc_AboutDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/AboutDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_AboutDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\Account.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\AccountBoostSerialization.h" />
+    <CustomBuild Include="src\gui\AddressBookDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\AddressBookDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\AddressBookDialog.h -o release\moc_AddressBookDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/AddressBookDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_AddressBookDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\AddressBookDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\AddressBookDialog.h -o debug\moc_AddressBookDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/AddressBookDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_AddressBookDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\AddressBookFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\AddressBookFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\AddressBookFrame.h -o release\moc_AddressBookFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/AddressBookFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_AddressBookFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\AddressBookFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\AddressBookFrame.h -o debug\moc_AddressBookFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/AddressBookFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_AddressBookFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\AddressBookModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\AddressBookModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\AddressBookModel.h -o release\moc_AddressBookModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/AddressBookModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_AddressBookModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\AddressBookModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\AddressBookModel.h -o debug\moc_AddressBookModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/AddressBookModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_AddressBookModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\AliasProvider.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\AliasProvider.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\AliasProvider.h -o release\moc_AliasProvider.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/AliasProvider.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_AliasProvider.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\AliasProvider.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\AliasProvider.h -o debug\moc_AliasProvider.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/AliasProvider.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_AliasProvider.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\AnimatedLabel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\AnimatedLabel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\AnimatedLabel.h -o release\moc_AnimatedLabel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/AnimatedLabel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_AnimatedLabel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\AnimatedLabel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\AnimatedLabel.h -o debug\moc_AnimatedLabel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/AnimatedLabel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_AnimatedLabel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Common\ArrayRef.h" />
+    <ClInclude Include="cryptonote\src\Common\ArrayView.h" />
+    <ClInclude Include="cryptonote\src\Common\Base58.cpp" />
+    <ClInclude Include="cryptonote\src\Common\Base58.h" />
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\BaseFunctionalTests.h" />
+    <ClInclude Include="cryptonote\tests\IntegrationTests\BaseTests.h" />
+    <ClInclude Include="cryptonote\src\Serialization\BinaryInputStreamSerializer.h" />
+    <ClInclude Include="cryptonote\src\Serialization\BinaryOutputStreamSerializer.h" />
+    <ClInclude Include="cryptonote\src\Serialization\BinarySerializationTools.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\BlockIndex.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\BlockReward.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\BlockValidation.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\Blockchain.h" />
+    <ClInclude Include="cryptonote\src\BlockchainExplorer\BlockchainExplorer.h" />
+    <ClInclude Include="cryptonote\include\BlockchainExplorerData.h" />
+    <ClInclude Include="cryptonote\src\BlockchainExplorer\BlockchainExplorerDataBuilder.h" />
+    <ClInclude Include="cryptonote\src\BlockchainExplorer\BlockchainExplorerErrors.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\BlockchainIndices.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\BlockchainMessages.h" />
+    <ClInclude Include="cryptonote\src\Miner\BlockchainMonitor.h" />
+    <ClInclude Include="cryptonote\src\Transfers\BlockchainSynchronizer.h" />
+    <ClInclude Include="cryptonote\src\Common\BlockingQueue.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\BoostSerializationHelper.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\ChainSplit1.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\ChainSwitch1.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\Chaingen.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\Chaingen001.h" />
+    <CustomBuild Include="src\gui\ChangePasswordDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\ChangePasswordDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\ChangePasswordDialog.h -o release\moc_ChangePasswordDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/ChangePasswordDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_ChangePasswordDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\ChangePasswordDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\ChangePasswordDialog.h -o debug\moc_ChangePasswordDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/ChangePasswordDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_ChangePasswordDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\tests\PerformanceTests\CheckRingSignature.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\Checkpoints.h" />
+    <ClInclude Include="cryptonote\src\Common\CommandLine.h" />
+    <CustomBuild Include="src\CommandLineParser.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\CommandLineParser.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\CommandLineParser.h -o release\moc_CommandLineParser.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/CommandLineParser.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_CommandLineParser.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\CommandLineParser.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\CommandLineParser.h -o debug\moc_CommandLineParser.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/CommandLineParser.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_CommandLineParser.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Logging\CommonLogger.h" />
+    <ClInclude Include="cryptonote\src\Transfers\CommonTypes.h" />
+    <ClInclude Include="cryptonote\src\PaymentGateService\ConfigurationManager.h" />
+    <ClInclude Include="cryptonote\src\P2p\ConnectionContext.h" />
+    <ClInclude Include="cryptonote\src\Common\ConsoleHandler.h" />
+    <ClInclude Include="cryptonote\src\Logging\ConsoleLogger.h" />
+    <ClInclude Include="cryptonote\src\Common\ConsoleTools.h" />
+    <ClInclude Include="cryptonote\tests\PerformanceTests\ConstructTransaction.h" />
+    <ClInclude Include="cryptonote\src\Platform\OSX\System\Context.h" />
+    <ClInclude Include="cryptonote\src\System\Context.h" />
+    <ClInclude Include="cryptonote\src\System\ContextGroup.h" />
+    <ClInclude Include="cryptonote\src\System\ContextGroupTimeout.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\Core.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\CoreConfig.h" />
+    <ClInclude Include="cryptonote\src\Rpc\CoreRpcServerCommandsDefinitions.h" />
+    <ClInclude Include="cryptonote\src\Rpc\CoreRpcServerErrorCodes.h" />
+    <ClInclude Include="cryptonote\include\CryptoNote.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\CryptoNoteBasic.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\CryptoNoteBasicImpl.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\CryptoNoteBoostSerialization.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteConfig.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\CryptoNoteFormatUtils.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteProtocol\CryptoNoteProtocolDefinitions.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteProtocol\CryptoNoteProtocolHandler.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteProtocol\CryptoNoteProtocolHandlerCommon.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\CryptoNoteSerialization.h" />
+    <ClInclude Include="cryptonote\tests\PerformanceTests\CryptoNoteSlowHash.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\CryptoNoteStatInfo.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\CryptoNoteTools.h" />
+    <ClInclude Include="src\CryptoNoteWrapper.h" />
+    <ClInclude Include="cryptonote\include\CryptoTypes.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\Currency.h" />
+    <ClInclude Include="src\CurrencyAdapter.h" />
+    <ClInclude Include="cryptonote\src\Daemon\DaemonCommandsHandler.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\Deposit.h" />
+    <CustomBuild Include="src\gui\DepositDetailsDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\DepositDetailsDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\DepositDetailsDialog.h -o release\moc_DepositDetailsDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/DepositDetailsDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_DepositDetailsDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\DepositDetailsDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\DepositDetailsDialog.h -o debug\moc_DepositDetailsDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/DepositDetailsDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_DepositDetailsDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\DepositIndex.h" />
+    <CustomBuild Include="src\gui\DepositListModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\DepositListModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\DepositListModel.h -o release\moc_DepositListModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/DepositListModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_DepositListModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\DepositListModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\DepositListModel.h -o debug\moc_DepositListModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/DepositListModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_DepositListModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\DepositModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\DepositModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\DepositModel.h -o release\moc_DepositModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/DepositModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_DepositModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\DepositModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\DepositModel.h -o debug\moc_DepositModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/DepositModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_DepositModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\DepositsFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\DepositsFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\DepositsFrame.h -o release\moc_DepositsFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/DepositsFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_DepositsFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\DepositsFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\DepositsFrame.h -o debug\moc_DepositsFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/DepositsFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_DepositsFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\tests\PerformanceTests\DerivePublicKey.h" />
+    <ClInclude Include="cryptonote\tests\PerformanceTests\DeriveSecretKey.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\Difficulty.h" />
+    <ClInclude Include="cryptonote\src\Platform\Linux\System\Dispatcher.h" />
+    <ClInclude Include="cryptonote\src\Platform\OSX\System\Dispatcher.h" />
+    <ClInclude Include="cryptonote\src\Platform\Windows\System\Dispatcher.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\DoubleSpend.h" />
+    <ClInclude Include="cryptonote\src\Platform\Linux\System\ErrorMessage.h" />
+    <ClInclude Include="cryptonote\src\Platform\OSX\System\ErrorMessage.h" />
+    <ClInclude Include="cryptonote\src\Platform\Windows\System\ErrorMessage.h" />
+    <ClInclude Include="cryptonote\src\System\Event.h" />
+    <ClInclude Include="cryptonote\src\System\EventLock.h" />
+    <ClInclude Include="cryptonote\tests\UnitTests\EventWaiter.h" />
+    <CustomBuild Include="src\gui\ExitWidget.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\ExitWidget.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\ExitWidget.h -o release\moc_ExitWidget.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/ExitWidget.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_ExitWidget.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\ExitWidget.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\ExitWidget.h -o debug\moc_ExitWidget.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/ExitWidget.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_ExitWidget.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Logging\FileLogger.h" />
+    <ClInclude Include="cryptonote\src\Platform\Linux\System\Future.h" />
+    <ClInclude Include="cryptonote\src\Platform\OSX\System\Future.h" />
+    <ClInclude Include="cryptonote\src\Platform\Windows\System\Future.h" />
+    <ClInclude Include="cryptonote\tests\PerformanceTests\GenerateKeyDerivation.h" />
+    <ClInclude Include="cryptonote\tests\PerformanceTests\GenerateKeyImage.h" />
+    <ClInclude Include="cryptonote\tests\PerformanceTests\GenerateKeyImageHelper.h" />
+    <ClInclude Include="cryptonote\tests\TransfersTests\Globals.h" />
+    <ClInclude Include="cryptonote\src\Rpc\HttpClient.h" />
+    <ClInclude Include="cryptonote\src\HTTP\HttpParser.h" />
+    <ClInclude Include="cryptonote\src\HTTP\HttpParserErrorCodes.h" />
+    <ClInclude Include="cryptonote\src\HTTP\HttpRequest.h" />
+    <ClInclude Include="cryptonote\src\HTTP\HttpResponse.h" />
+    <ClInclude Include="cryptonote\src\Rpc\HttpServer.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\IBlock.h" />
+    <ClInclude Include="cryptonote\include\IBlockchainExplorer.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\IBlockchainStorageObserver.h" />
+    <ClInclude Include="cryptonote\src\Transfers\IBlockchainSynchronizer.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\ICore.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\ICoreObserver.h" />
+    <ClInclude Include="cryptonote\tests\UnitTests\ICoreStub.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteProtocol\ICryptoNoteProtocolObserver.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteProtocol\ICryptoNoteProtocolQuery.h" />
+    <ClInclude Include="cryptonote\tests\UnitTests\ICryptoNoteProtocolQueryStub.h" />
+    <ClInclude Include="cryptonote\src\Wallet\IFusionManager.h" />
+    <ClInclude Include="cryptonote\src\Common\IInputStream.h" />
+    <ClInclude Include="cryptonote\src\Logging\ILogger.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\IMinerHandler.h" />
+    <ClInclude Include="cryptonote\include\INode.h" />
+    <ClInclude Include="cryptonote\tests\UnitTests\INodeStubs.h" />
+    <ClInclude Include="cryptonote\include\IObservable.h" />
+    <ClInclude Include="cryptonote\src\Transfers\IObservableImpl.h" />
+    <ClInclude Include="cryptonote\src\Common\IOutputStream.h" />
+    <ClInclude Include="cryptonote\src\P2p\IP2pNodeInternal.h" />
+    <ClInclude Include="cryptonote\src\Serialization\ISerializer.h" />
+    <ClInclude Include="cryptonote\src\Serialization\IStream.h" />
+    <ClInclude Include="cryptonote\include\IStreamSerializable.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\ITimeProvider.h" />
+    <ClInclude Include="cryptonote\include\ITransaction.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\ITransactionValidator.h" />
+    <ClInclude Include="cryptonote\include\ITransfersContainer.h" />
+    <ClInclude Include="cryptonote\include\ITransfersSynchronizer.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\ITxPoolObserver.h" />
+    <ClInclude Include="cryptonote\include\IWallet.h" />
+    <ClInclude Include="cryptonote\include\IWalletLegacy.h" />
+    <CustomBuild Include="src\gui\ImportKeyDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\ImportKeyDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\ImportKeyDialog.h -o release\moc_ImportKeyDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/ImportKeyDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_ImportKeyDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\ImportKeyDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\ImportKeyDialog.h -o debug\moc_ImportKeyDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/ImportKeyDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_ImportKeyDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\InProcTestNode.h" />
+    <ClInclude Include="cryptonote\src\InProcessNode\InProcessNode.h" />
+    <ClInclude Include="cryptonote\src\InProcessNode\InProcessNodeErrors.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\IntegerOverflow.h" />
+    <ClInclude Include="cryptonote\src\System\InterruptedException.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\IntrusiveLinkedList.h" />
+    <ClInclude Include="cryptonote\tests\Io.h" />
+    <ClInclude Include="cryptonote\src\System\Ipv4Address.h" />
+    <ClInclude Include="cryptonote\src\Platform\Linux\System\Ipv4Resolver.h" />
+    <ClInclude Include="cryptonote\src\Platform\OSX\System\Ipv4Resolver.h" />
+    <ClInclude Include="cryptonote\src\Platform\Windows\System\Ipv4Resolver.h" />
+    <ClInclude Include="cryptonote\tests\PerformanceTests\IsOutToAccount.h" />
+    <ClInclude Include="cryptonote\src\Serialization\JsonInputStreamSerializer.h" />
+    <ClInclude Include="cryptonote\src\Serialization\JsonInputValueSerializer.h" />
+    <ClInclude Include="cryptonote\src\Serialization\JsonOutputStreamSerializer.h" />
+    <ClInclude Include="cryptonote\src\Rpc\JsonRpc.h" />
+    <ClInclude Include="cryptonote\src\JsonRpcServer\JsonRpcServer.h" />
+    <ClInclude Include="cryptonote\src\Common\JsonValue.h" />
+    <ClInclude Include="cryptonote\src\Serialization\KVBinaryCommon.h" />
+    <ClInclude Include="cryptonote\src\Serialization\KVBinaryInputStreamSerializer.h" />
+    <ClInclude Include="cryptonote\src\Serialization\KVBinaryOutputStreamSerializer.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\KeysStorage.h" />
+    <ClInclude Include="cryptonote\src\Wallet\LegacyKeysImporter.h" />
+    <ClInclude Include="cryptonote\src\P2p\LevinProtocol.h" />
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\Logger.h" />
+    <ClInclude Include="src\LoggerAdapter.h" />
+    <ClInclude Include="cryptonote\src\Logging\LoggerGroup.h" />
+    <ClInclude Include="cryptonote\src\Logging\LoggerManager.h" />
+    <ClInclude Include="cryptonote\src\Logging\LoggerMessage.h" />
+    <ClInclude Include="cryptonote\src\Logging\LoggerRef.h" />
+    <CustomBuild Include="src\gui\MainWindow.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\MainWindow.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\MainWindow.h -o release\moc_MainWindow.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/MainWindow.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_MainWindow.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\MainWindow.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\MainWindow.h -o debug\moc_MainWindow.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/MainWindow.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_MainWindow.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Common\Math.h" />
+    <ClInclude Include="cryptonote\src\Common\MemoryInputStream.h" />
+    <ClInclude Include="cryptonote\src\Serialization\MemoryStream.h" />
+    <ClInclude Include="src\gui\Message.h" />
+    <CustomBuild Include="src\gui\MessageAddressFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\MessageAddressFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\MessageAddressFrame.h -o release\moc_MessageAddressFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/MessageAddressFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_MessageAddressFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\MessageAddressFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\MessageAddressFrame.h -o debug\moc_MessageAddressFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/MessageAddressFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_MessageAddressFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\MessageDetailsDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\MessageDetailsDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\MessageDetailsDialog.h -o release\moc_MessageDetailsDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/MessageDetailsDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_MessageDetailsDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\MessageDetailsDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\MessageDetailsDialog.h -o debug\moc_MessageDetailsDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/MessageDetailsDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_MessageDetailsDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\MessageQueue.h" />
+    <CustomBuild Include="src\gui\MessagesFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\MessagesFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\MessagesFrame.h -o release\moc_MessagesFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/MessagesFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_MessagesFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\MessagesFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\MessagesFrame.h -o debug\moc_MessagesFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/MessagesFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_MessagesFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\MessagesModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\MessagesModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\MessagesModel.h -o release\moc_MessagesModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/MessagesModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_MessagesModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\MessagesModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\MessagesModel.h -o debug\moc_MessagesModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/MessagesModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_MessagesModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\Miner.h" />
+    <ClInclude Include="cryptonote\src\Miner\Miner.h" />
+    <CustomBuild Include="src\Miner.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\Miner.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\Miner.h -o release\moc_Miner.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/Miner.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_Miner.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\Miner.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\Miner.h -o debug\moc_Miner.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/Miner.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_Miner.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\MinerConfig.h" />
+    <ClInclude Include="cryptonote\src\Miner\MinerEvent.h" />
+    <ClInclude Include="cryptonote\src\Miner\MinerManager.h" />
+    <ClInclude Include="cryptonote\src\Miner\MiningConfig.h" />
+    <CustomBuild Include="src\gui\MiningFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\MiningFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\MiningFrame.h -o release\moc_MiningFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/MiningFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_MiningFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\MiningFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\MiningFrame.h -o debug\moc_MiningFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/MiningFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_MiningFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\tests\PerformanceTests\MultiTransactionTestBase.h" />
+    <ClInclude Include="cryptonote\src\P2p\NetNode.h" />
+    <ClInclude Include="cryptonote\src\P2p\NetNodeCommon.h" />
+    <ClInclude Include="cryptonote\src\P2p\NetNodeConfig.h" />
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\NetworkConfiguration.h" />
+    <CustomBuild Include="src\gui\NewAddressDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\NewAddressDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\NewAddressDialog.h -o release\moc_NewAddressDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/NewAddressDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_NewAddressDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\NewAddressDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\NewAddressDialog.h -o debug\moc_NewAddressDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/NewAddressDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_NewAddressDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\NewPasswordDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\NewPasswordDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\NewPasswordDialog.h -o release\moc_NewPasswordDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/NewPasswordDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_NewPasswordDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\NewPasswordDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\NewPasswordDialog.h -o debug\moc_NewPasswordDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/NewPasswordDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_NewPasswordDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\NewPoolDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\NewPoolDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\NewPoolDialog.h -o release\moc_NewPoolDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/NewPoolDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_NewPoolDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\NewPoolDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\NewPoolDialog.h -o debug\moc_NewPoolDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/NewPoolDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_NewPoolDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\NodeAdapter.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\NodeAdapter.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\NodeAdapter.h -o release\moc_NodeAdapter.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/NodeAdapter.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_NodeAdapter.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\NodeAdapter.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\NodeAdapter.h -o debug\moc_NodeAdapter.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/NodeAdapter.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_NodeAdapter.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\NodeCallback.h" />
+    <ClInclude Include="cryptonote\src\NodeRpcProxy\NodeErrors.h" />
+    <ClInclude Include="cryptonote\src\PaymentGate\NodeFactory.h" />
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\NodeObserver.h" />
+    <ClInclude Include="cryptonote\src\NodeRpcProxy\NodeRpcProxy.h" />
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\ObservableValue.h" />
+    <ClInclude Include="cryptonote\src\Common\ObserverManager.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\OnceInInterval.h" />
+    <ClInclude Include="cryptonote\src\System\OperationTimeout.h" />
+    <CustomBuild Include="src\gui\OverviewFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\OverviewFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\OverviewFrame.h -o release\moc_OverviewFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/OverviewFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_OverviewFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\OverviewFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\OverviewFrame.h -o debug\moc_OverviewFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/OverviewFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_OverviewFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\P2p\P2pConnectionProxy.h" />
+    <ClInclude Include="cryptonote\src\P2p\P2pContext.h" />
+    <ClInclude Include="cryptonote\src\P2p\P2pContextOwner.h" />
+    <ClInclude Include="cryptonote\src\P2p\P2pInterfaces.h" />
+    <ClInclude Include="cryptonote\src\P2p\P2pNetworks.h" />
+    <ClInclude Include="cryptonote\src\P2p\P2pNode.h" />
+    <ClInclude Include="cryptonote\src\P2p\P2pNodeConfig.h" />
+    <ClInclude Include="cryptonote\src\P2p\P2pProtocolDefinitions.h" />
+    <ClInclude Include="cryptonote\src\P2p\P2pProtocolTypes.h" />
+    <ClInclude Include="cryptonote\src\SimpleWallet\PasswordContainer.h" />
+    <CustomBuild Include="src\gui\PasswordDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\PasswordDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\PasswordDialog.h -o release\moc_PasswordDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/PasswordDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_PasswordDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\PasswordDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\PasswordDialog.h -o debug\moc_PasswordDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/PasswordDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_PasswordDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Common\PathTools.h" />
+    <ClInclude Include="cryptonote\src\PaymentGateService\PaymentGateService.h" />
+    <ClInclude Include="cryptonote\src\PaymentGateService\PaymentServiceConfiguration.h" />
+    <ClInclude Include="cryptonote\src\PaymentGate\PaymentServiceJsonRpcMessages.h" />
+    <ClInclude Include="cryptonote\src\PaymentGate\PaymentServiceJsonRpcServer.h" />
+    <ClInclude Include="cryptonote\src\P2p\PeerListManager.cpp" />
+    <ClInclude Include="cryptonote\src\P2p\PeerListManager.h" />
+    <ClInclude Include="cryptonote\tests\PerformanceTests\PerformanceTests.h" />
+    <ClInclude Include="cryptonote\tests\PerformanceTests\PerformanceUtils.h" />
+    <CustomBuild Include="src\gui\PoolModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\PoolModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\PoolModel.h -o release\moc_PoolModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/PoolModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_PoolModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\PoolModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\PoolModel.h -o debug\moc_PoolModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/PoolModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_PoolModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\Process.h" />
+    <CustomBuild Include="src\gui\QRLabel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\QRLabel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\QRLabel.h -o release\moc_QRLabel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/QRLabel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_QRLabel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\QRLabel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\QRLabel.h -o debug\moc_QRLabel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/QRLabel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_QRLabel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\RPCTestNode.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\RandomOuts.h" />
+    <CustomBuild Include="src\gui\ReceiveFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\ReceiveFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\ReceiveFrame.h -o release\moc_ReceiveFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/ReceiveFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_ReceiveFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\ReceiveFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\ReceiveFrame.h -o debug\moc_ReceiveFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/ReceiveFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_ReceiveFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\RecentTransactionsModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\RecentTransactionsModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\RecentTransactionsModel.h -o release\moc_RecentTransactionsModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/RecentTransactionsModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_RecentTransactionsModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\RecentTransactionsModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\RecentTransactionsModel.h -o debug\moc_RecentTransactionsModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/RecentTransactionsModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_RecentTransactionsModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\System\RemoteContext.h" />
+    <ClInclude Include="cryptonote\src\System\RemoteEventLock.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\RingSignature.h" />
+    <ClInclude Include="cryptonote\src\PaymentGateService\RpcNodeConfiguration.h" />
+    <ClInclude Include="cryptonote\src\Rpc\RpcServer.h" />
+    <ClInclude Include="cryptonote\src\Rpc\RpcServerConfig.h" />
+    <ClInclude Include="cryptonote\src\Common\ScopeExit.h" />
+    <CustomBuild Include="src\gui\SendFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\SendFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\SendFrame.h -o release\moc_SendFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/SendFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_SendFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\SendFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\SendFrame.h -o debug\moc_SendFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/SendFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_SendFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\SendMessageFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\SendMessageFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\SendMessageFrame.h -o release\moc_SendMessageFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/SendMessageFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_SendMessageFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\SendMessageFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\SendMessageFrame.h -o debug\moc_SendMessageFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/SendMessageFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_SendMessageFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Serialization\SerializationOverloads.h" />
+    <ClInclude Include="cryptonote\src\Serialization\SerializationTools.h" />
+    <CustomBuild Include="src\Settings.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\Settings.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\Settings.h -o release\moc_Settings.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/Settings.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_Settings.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\Settings.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\Settings.h -o debug\moc_Settings.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/Settings.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_Settings.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Common\ShuffleGenerator.h" />
+    <ClInclude Include="cryptonote\src\Common\SignalHandler.h" />
+    <CustomBuild Include="src\SignalHandler.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\SignalHandler.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\SignalHandler.h -o release\moc_SignalHandler.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/SignalHandler.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_SignalHandler.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\SignalHandler.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\SignalHandler.h -o debug\moc_SignalHandler.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/SignalHandler.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_SignalHandler.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\SimpleWallet\SimpleWallet.h" />
+    <ClInclude Include="cryptonote\tests\PerformanceTests\SingleTransactionTestBase.h" />
+    <CustomBuild Include="src\gui\SortedDepositModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\SortedDepositModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\SortedDepositModel.h -o release\moc_SortedDepositModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/SortedDepositModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_SortedDepositModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\SortedDepositModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\SortedDepositModel.h -o debug\moc_SortedDepositModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/SortedDepositModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_SortedDepositModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\SortedMessagesModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\SortedMessagesModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\SortedMessagesModel.h -o release\moc_SortedMessagesModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/SortedMessagesModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_SortedMessagesModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\SortedMessagesModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\SortedMessagesModel.h -o debug\moc_SortedMessagesModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/SortedMessagesModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_SortedMessagesModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\SortedTransactionsModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\SortedTransactionsModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\SortedTransactionsModel.h -o release\moc_SortedTransactionsModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/SortedTransactionsModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_SortedTransactionsModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\SortedTransactionsModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\SortedTransactionsModel.h -o debug\moc_SortedTransactionsModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/SortedTransactionsModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_SortedTransactionsModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Common\StdInputStream.h" />
+    <ClInclude Include="cryptonote\src\Common\StdOutputStream.h" />
+    <CustomBuild Include="src\StratumClient.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\StratumClient.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\StratumClient.h -o release\moc_StratumClient.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/StratumClient.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_StratumClient.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\StratumClient.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\StratumClient.h -o debug\moc_StratumClient.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/StratumClient.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_StratumClient.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Logging\StreamLogger.h" />
+    <ClInclude Include="cryptonote\src\Common\StreamTools.h" />
+    <ClInclude Include="cryptonote\src\Common\StringBuffer.h" />
+    <ClInclude Include="cryptonote\src\Common\StringInputStream.h" />
+    <ClInclude Include="cryptonote\src\Common\StringOutputStream.h" />
+    <ClInclude Include="cryptonote\src\Common\StringTools.h" />
+    <ClInclude Include="cryptonote\src\Common\StringView.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\SwappedMap.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\SwappedVector.h" />
+    <ClInclude Include="cryptonote\src\Transfers\SynchronizationState.h" />
+    <ClInclude Include="cryptonote\src\Platform\Linux\System\TcpConnection.h" />
+    <ClInclude Include="cryptonote\src\Platform\OSX\System\TcpConnection.h" />
+    <ClInclude Include="cryptonote\src\Platform\Windows\System\TcpConnection.h" />
+    <ClInclude Include="cryptonote\src\Platform\Linux\System\TcpConnector.h" />
+    <ClInclude Include="cryptonote\src\Platform\OSX\System\TcpConnector.h" />
+    <ClInclude Include="cryptonote\src\Platform\Windows\System\TcpConnector.h" />
+    <ClInclude Include="cryptonote\src\Platform\Linux\System\TcpListener.h" />
+    <ClInclude Include="cryptonote\src\Platform\OSX\System\TcpListener.h" />
+    <ClInclude Include="cryptonote\src\Platform\Windows\System\TcpListener.h" />
+    <ClInclude Include="cryptonote\src\System\TcpStream.h" />
+    <ClInclude Include="cryptonote\tests\UnitTests\TestBlockchainGenerator.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\TestGenerator.h" />
+    <ClInclude Include="cryptonote\tests\TestGenerator\TestGenerator.h" />
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\TestNetwork.h" />
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\TestNode.h" />
+    <ClInclude Include="cryptonote\tests\IntegrationTestLib\TestWalletLegacy.h" />
+    <ClInclude Include="cryptonote\src\Platform\Linux\System\Timer.h" />
+    <ClInclude Include="cryptonote\src\Platform\OSX\System\Timer.h" />
+    <ClInclude Include="cryptonote\src\Platform\Windows\System\Timer.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\TransactionApi.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\TransactionApiExtra.h" />
+    <ClInclude Include="cryptonote\tests\UnitTests\TransactionApiHelpers.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\TransactionBuilder.h" />
+    <CustomBuild Include="src\gui\TransactionDetailsDialog.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\TransactionDetailsDialog.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\TransactionDetailsDialog.h -o release\moc_TransactionDetailsDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/TransactionDetailsDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_TransactionDetailsDialog.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\TransactionDetailsDialog.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\TransactionDetailsDialog.h -o debug\moc_TransactionDetailsDialog.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/TransactionDetailsDialog.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_TransactionDetailsDialog.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\TransactionExtra.h" />
+    <CustomBuild Include="src\gui\TransactionFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\TransactionFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\TransactionFrame.h -o release\moc_TransactionFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/TransactionFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_TransactionFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\TransactionFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\TransactionFrame.h -o debug\moc_TransactionFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/TransactionFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_TransactionFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\TransactionPool.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\TransactionTests.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\TransactionUtils.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\TransactionValidation.h" />
+    <CustomBuild Include="src\gui\TransactionsFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\TransactionsFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\TransactionsFrame.h -o release\moc_TransactionsFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/TransactionsFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_TransactionsFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\TransactionsFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\TransactionsFrame.h -o debug\moc_TransactionsFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/TransactionsFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_TransactionsFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\TransactionsListModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\TransactionsListModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\TransactionsListModel.h -o release\moc_TransactionsListModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/TransactionsListModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_TransactionsListModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\TransactionsListModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\TransactionsListModel.h -o debug\moc_TransactionsListModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/TransactionsListModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_TransactionsListModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\TransactionsModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\TransactionsModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\TransactionsModel.h -o release\moc_TransactionsModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/TransactionsModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_TransactionsModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\TransactionsModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\TransactionsModel.h -o debug\moc_TransactionsModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/TransactionsModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_TransactionsModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\gui\TransferFrame.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\TransferFrame.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\TransferFrame.h -o release\moc_TransferFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/TransferFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_TransferFrame.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\TransferFrame.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\TransferFrame.h -o debug\moc_TransferFrame.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/TransferFrame.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_TransferFrame.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Transfers\TransfersConsumer.h" />
+    <ClInclude Include="cryptonote\src\Transfers\TransfersContainer.h" />
+    <ClInclude Include="cryptonote\tests\UnitTests\TransfersObserver.h" />
+    <ClInclude Include="cryptonote\src\Transfers\TransfersSubscription.h" />
+    <ClInclude Include="cryptonote\src\Transfers\TransfersSynchronizer.h" />
+    <ClInclude Include="cryptonote\src\Transfers\TypeHelpers.h" />
+    <ClInclude Include="cryptonote\tests\UnitTests\UnitTestsUtils.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\UnorderedContainersBoostSerialization.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\Upgrade.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\UpgradeDetector.h" />
+    <ClInclude Include="cryptonote\src\Common\Util.h" />
+    <ClInclude Include="cryptonote\src\Common\Varint.h" />
+    <ClInclude Include="cryptonote\src\Common\VectorOutputStream.h" />
+    <ClInclude Include="cryptonote\src\CryptoNoteCore\VerificationContext.h" />
+    <CustomBuild Include="src\gui\VisibleMessagesModel.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\VisibleMessagesModel.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\VisibleMessagesModel.h -o release\moc_VisibleMessagesModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/VisibleMessagesModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_VisibleMessagesModel.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\VisibleMessagesModel.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\VisibleMessagesModel.h -o debug\moc_VisibleMessagesModel.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/VisibleMessagesModel.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_VisibleMessagesModel.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="src\WalletAdapter.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\WalletAdapter.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\WalletAdapter.h -o release\moc_WalletAdapter.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/WalletAdapter.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_WalletAdapter.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\WalletAdapter.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\WalletAdapter.h -o debug\moc_WalletAdapter.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/WalletAdapter.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_WalletAdapter.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\Wallet\WalletAsyncContextCounter.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletDepositInfo.h" />
+    <ClInclude Include="cryptonote\src\Wallet\WalletErrors.h" />
+    <ClInclude Include="src\gui\WalletEvents.h" />
+    <ClInclude Include="cryptonote\src\PaymentGate\WalletFactory.h" />
+    <ClInclude Include="cryptonote\src\Wallet\WalletGreen.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletHelper.h" />
+    <ClInclude Include="cryptonote\src\Wallet\WalletIndices.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletLegacy.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletLegacyEvent.h" />
+    <ClInclude Include="cryptonote\tests\IntegrationTests\WalletLegacyObserver.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletLegacySerialization.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletLegacySerializer.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletRequest.h" />
+    <ClInclude Include="cryptonote\src\Wallet\WalletRpcServer.h" />
+    <ClInclude Include="cryptonote\src\Wallet\WalletRpcServerCommandsDefinitions.h" />
+    <ClInclude Include="cryptonote\src\Wallet\WalletRpcServerErrorCodes.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletSendTransactionContext.h" />
+    <ClInclude Include="cryptonote\src\Wallet\WalletSerialization.h" />
+    <ClInclude Include="cryptonote\src\PaymentGate\WalletService.h" />
+    <ClInclude Include="cryptonote\src\PaymentGate\WalletServiceErrorCategory.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletTransactionSender.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletUnconfirmedTransactions.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletUserTransactionsCache.h" />
+    <ClInclude Include="cryptonote\src\WalletLegacy\WalletUtils.h" />
+    <ClInclude Include="cryptonote\src\Wallet\WalletUtils.h" />
+    <CustomBuild Include="src\Worker.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\Worker.h;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\Worker.h -o release\moc_Worker.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/Worker.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_Worker.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\Worker.h;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\Worker.h -o debug\moc_Worker.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/Worker.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_Worker.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="cryptonote\src\crypto\aesb.h" />
+    <ClInclude Include="cryptonote\src\Platform\mingw\alloca.h" />
+    <ClInclude Include="cryptonote\src\Platform\msc\alloca.h" />
+    <ClInclude Include="libqrencode\bitstream.h" />
+    <ClInclude Include="cryptonote\src\crypto\blake256.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\bsdqueue.h" />
+    <ClInclude Include="cryptonote\src\crypto\chacha.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\codelength.h" />
+    <ClInclude Include="libqrencode\tests\common.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\connecthostport.h" />
+    <ClInclude Include="cryptonote\src\crypto\crypto-ops-data.c" />
+    <ClInclude Include="cryptonote\src\crypto\crypto-ops.c" />
+    <ClInclude Include="cryptonote\src\crypto\crypto-ops.h" />
+    <ClInclude Include="cryptonote\tests\crypto\crypto-tests.h" />
+    <ClInclude Include="cryptonote\src\crypto\crypto.cpp" />
+    <ClInclude Include="cryptonote\src\crypto\crypto.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\declspec.h" />
+    <ClInclude Include="libqrencode\tests\decoder.h" />
+    <ClInclude Include="cryptonote\external\google\sparsehash\densehashtable.h" />
+    <ClInclude Include="cryptonote\tests\CoreTests\double_spend.inl" />
+    <ClInclude Include="cryptonote\src\crypto\generic-ops.h" />
+    <ClInclude Include="cryptonote\src\crypto\groestl.h" />
+    <ClInclude Include="cryptonote\src\crypto\groestl_tables.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\internal\gtest-death-test-internal.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\gtest-death-test.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\internal\gtest-filepath.h" />
+    <ClInclude Include="cryptonote\external\gtest\src\gtest-internal-inl.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\internal\gtest-internal.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\internal\gtest-linked_ptr.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\gtest-message.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\gtest-param-test.h" />
+    <ClInclude Include="cryptonote\external\gtest\test\gtest-param-test_test.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\internal\gtest-param-util-generated.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\internal\gtest-param-util.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\internal\gtest-port.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\gtest-printers.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\gtest-spi.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\internal\gtest-string.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\gtest-test-part.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\internal\gtest-tuple.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\internal\gtest-type-util.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\gtest-typed-test.h" />
+    <ClInclude Include="cryptonote\external\gtest\test\gtest-typed-test_test.h" />
+    <ClInclude Include="cryptonote\external\gtest\fused-src\gtest\gtest.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\gtest.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\gtest_pred_impl.h" />
+    <ClInclude Include="cryptonote\external\gtest\include\gtest\gtest_prod.h" />
+    <ClInclude Include="cryptonote\src\crypto\hash-ops.h" />
+    <ClInclude Include="cryptonote\src\crypto\hash.c" />
+    <ClInclude Include="cryptonote\src\crypto\hash.h" />
+    <ClInclude Include="cryptonote\external\google\sparsehash\hashtable-common.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\igd_desc_parse.h" />
+    <ClInclude Include="cryptonote\src\crypto\initializer.h" />
+    <ClInclude Include="cryptonote\src\Common\int-util.h" />
+    <ClInclude Include="cryptonote\src\crypto\jh.h" />
+    <ClInclude Include="cryptonote\src\crypto\keccak.c" />
+    <ClInclude Include="cryptonote\src\crypto\keccak.h" />
+    <ClInclude Include="cryptonote\external\google\sparsehash\libc_allocator_with_realloc.h" />
+    <ClInclude Include="libqrencode\mask.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\minisoap.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\minissdpc.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\miniupnpc.h" />
+    <ClInclude Include="cryptonote\build\release\miniupnpcstrings.h" />
+    <ClInclude Include="src\miniupnpcstrings.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\miniupnpctypes.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\miniwget.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\minixml.h" />
+    <ClInclude Include="libqrencode\mmask.h" />
+    <ClInclude Include="libqrencode\mqrspec.h" />
+    <ClInclude Include="cryptonote\src\crypto\oaes_config.h" />
+    <ClInclude Include="cryptonote\src\crypto\oaes_lib.h" />
+    <ClInclude Include="cryptonote\external\google\sparsehash\os_config.h" />
+    <ClInclude Include="cryptonote\src\Platform\msc\sys\param.h" />
+    <ClInclude Include="cryptonote\src\Common\pod-class.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\portlistingparse.h" />
+    <ClInclude Include="cryptonote\external\gtest\samples\prime_tables.h" />
+    <ClInclude Include="cryptonote\external\gtest\test\production.h" />
+    <ClInclude Include="libqrencode\qrencode.h" />
+    <ClInclude Include="libqrencode\qrencode_inner.h" />
+    <ClInclude Include="libqrencode\qrinput.h" />
+    <ClInclude Include="libqrencode\qrspec.h" />
+    <ClInclude Include="cryptonote\src\crypto\random.c" />
+    <ClInclude Include="cryptonote\src\crypto\random.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\receivedata.h" />
+    <ClInclude Include="libqrencode\rscode.h" />
+    <ClInclude Include="cryptonote\external\gtest\samples\sample1.h" />
+    <ClInclude Include="cryptonote\external\gtest\samples\sample2.h" />
+    <ClInclude Include="cryptonote\external\gtest\samples\sample3-inl.h" />
+    <ClInclude Include="cryptonote\external\gtest\samples\sample4.h" />
+    <ClInclude Include="cryptonote\src\crypto\skein.h" />
+    <ClInclude Include="cryptonote\src\crypto\skein_port.h" />
+    <ClInclude Include="cryptonote\src\crypto\slow-hash.inl" />
+    <ClInclude Include="cryptonote\external\google\sparsehash\sparseconfig.h" />
+    <ClInclude Include="cryptonote\external\google\sparsehash\sparseconfig_win.h" />
+    <ClInclude Include="cryptonote\external\google\sparsehash\sparsehashtable.h" />
+    <ClInclude Include="libqrencode\split.h" />
+    <ClInclude Include="cryptonote\src\Common\static_assert.h" />
+    <ClInclude Include="cryptonote\src\Platform\msc\stdbool.h" />
+    <ClInclude Include="cryptonote\external\google\type_traits.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\upnpcommands.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\upnperrors.h" />
+    <ClInclude Include="cryptonote\external\miniupnpc\upnpreplyparse.h" />
+    <ClInclude Include="cryptonote\build\release\version\version.h" />
+    <ClInclude Include="cryptonote\external\gtest\xcode\Samples\FrameworkSample\widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\NodeAdapter.moc">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\NodeAdapter.cpp;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\NodeAdapter.cpp -o debug\NodeAdapter.moc</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/NodeAdapter.cpp</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\NodeAdapter.moc;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\NodeAdapter.moc">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\NodeAdapter.cpp;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\NodeAdapter.cpp -o release\NodeAdapter.moc</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/NodeAdapter.cpp</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\NodeAdapter.moc;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="debug\OverviewFrame.moc">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\OverviewFrame.cpp;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\OverviewFrame.cpp -o debug\OverviewFrame.moc</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/OverviewFrame.cpp</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\OverviewFrame.moc;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\OverviewFrame.moc">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\OverviewFrame.cpp;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\OverviewFrame.cpp -o release\OverviewFrame.moc</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/OverviewFrame.cpp</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\OverviewFrame.moc;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="debug\TransactionFrame.moc">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\gui\TransactionFrame.cpp;debug\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @debug/mocinclude.opt src\gui\TransactionFrame.cpp -o debug\TransactionFrame.moc</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC src/gui/TransactionFrame.cpp</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\TransactionFrame.moc;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\TransactionFrame.moc">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\gui\TransactionFrame.cpp;release\mocinclude.opt;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1900 -D_WIN32 -D_WIN64 @release/mocinclude.opt src\gui\TransactionFrame.cpp -o release\TransactionFrame.moc</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC src/gui/TransactionFrame.cpp</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\TransactionFrame.moc;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </CustomBuild>
+    <ClCompile Include="debug\moc_AboutDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_AboutDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_AddressBookDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_AddressBookDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_AddressBookFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_AddressBookFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_AddressBookModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_AddressBookModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_AliasProvider.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_AliasProvider.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_AnimatedLabel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_AnimatedLabel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_ChangePasswordDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_ChangePasswordDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_CommandLineParser.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_CommandLineParser.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_DepositDetailsDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_DepositDetailsDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_DepositListModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_DepositListModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_DepositModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_DepositModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_DepositsFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_DepositsFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_ExitWidget.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_ExitWidget.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_ImportKeyDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_ImportKeyDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_MainWindow.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_MainWindow.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_MessageAddressFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_MessageAddressFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_MessageDetailsDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_MessageDetailsDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_MessagesFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_MessagesFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_MessagesModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_MessagesModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_Miner.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_Miner.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_MiningFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_MiningFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_NewAddressDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_NewAddressDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_NewPasswordDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_NewPasswordDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_NewPoolDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_NewPoolDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_NodeAdapter.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_NodeAdapter.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_OverviewFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_OverviewFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_PasswordDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_PasswordDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_PoolModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_PoolModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_QRLabel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_QRLabel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_ReceiveFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_ReceiveFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_RecentTransactionsModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_RecentTransactionsModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_SendFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_SendFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_SendMessageFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_SendMessageFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_Settings.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_Settings.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_SignalHandler.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_SignalHandler.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_SortedDepositModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_SortedDepositModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_SortedMessagesModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_SortedMessagesModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_SortedTransactionsModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_SortedTransactionsModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_StratumClient.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_StratumClient.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_TransactionDetailsDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_TransactionDetailsDialog.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_TransactionFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_TransactionFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_TransactionsFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_TransactionsFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_TransactionsListModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_TransactionsListModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_TransactionsModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_TransactionsModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_TransferFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_TransferFrame.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_VisibleMessagesModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_VisibleMessagesModel.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WalletAdapter.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_WalletAdapter.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_Worker.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_Worker.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\qrc_resources.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\qrc_resources.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="src\gui\ui\aboutdialog.ui" />
+    <CustomBuild Include="src\gui\ui\addressbookdialog.ui" />
+    <CustomBuild Include="src\gui\ui\addressbookframe.ui" />
+    <CustomBuild Include="src\gui\ui\changepassworddialog.ui" />
+    <CustomBuild Include="src\gui\ui\depositdetailsdialog.ui" />
+    <CustomBuild Include="src\gui\ui\depositsframe.ui" />
+    <CustomBuild Include="src\gui\ui\exitwidget.ui" />
+    <CustomBuild Include="src\gui\ui\importkeydialog.ui" />
+    <CustomBuild Include="src\gui\ui\mainwindow.ui" />
+    <CustomBuild Include="src\gui\ui\messageaddressframe.ui" />
+    <CustomBuild Include="src\gui\ui\messagedetailsdialog.ui" />
+    <CustomBuild Include="src\gui\ui\messagesframe.ui" />
+    <CustomBuild Include="src\gui\ui\miningframe.ui" />
+    <CustomBuild Include="src\gui\ui\newaddressdialog.ui" />
+    <CustomBuild Include="src\gui\ui\newpassworddialog.ui" />
+    <CustomBuild Include="src\gui\ui\newpooldialog.ui" />
+    <CustomBuild Include="src\gui\ui\overviewframe.ui" />
+    <CustomBuild Include="src\gui\ui\passworddialog.ui" />
+    <CustomBuild Include="src\gui\ui\receiveframe.ui" />
+    <CustomBuild Include="src\gui\ui\sendframe.ui" />
+    <CustomBuild Include="src\gui\ui\sendmessageframe.ui" />
+    <CustomBuild Include="src\gui\ui\transactiondetailsdialog.ui" />
+    <CustomBuild Include="src\gui\ui\transactionframe.ui" />
+    <CustomBuild Include="src\gui\ui\transactionsframe.ui" />
+    <CustomBuild Include="src\gui\ui\transferframe.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\icons\add.png" />
+    <None Include="src\icons\address-book.png" />
+    <None Include="src\images\clock.gif" />
+    <None Include="src\icons\clock1.png" />
+    <None Include="src\icons\clock2.png" />
+    <None Include="src\icons\clock3.png" />
+    <None Include="src\icons\clock4.png" />
+    <None Include="src\icons\clock5.png" />
+    <None Include="src\icons\connected.png" />
+    <None Include="src\images\cryptonote.png" />
+    <None Include="src\icons\deposits.png" />
+    <None Include="src\icons\disconnected.png" />
+    <None Include="src\icons\editcopy.png" />
+    <None Include="src\icons\editpaste.png" />
+    <None Include="src\icons\export.png" />
+    <None Include="src\icons\lock_closed.png" />
+    <None Include="src\icons\lock_open.png" />
+    <None Include="src\icons\messages.png" />
+    <None Include="src\icons\mining.png" />
+    <None Include="src\icons\overview.png" />
+    <None Include="src\icons\receive.png" />
+    <None Include="src\icons\remove.png" />
+    <CustomBuild Include="src\resources.qrc">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">src\resources.qrc;src\images\splash.png;src\images\cryptonote.png;src\images\clock.gif;src\icons\messages.png;src\icons\unconfirmed.png;src\icons\synced.png;src\icons\mining.png;src\icons\clock1.png;src\icons\editcopy.png;src\icons\clock2.png;src\icons\deposits.png;src\icons\clock3.png;src\icons\transaction.png;src\icons\lock_open.png;src\icons\clock4.png;src\icons\clock5.png;src\icons\tx_mined.png;src\icons\lock_closed.png;src\icons\tx_output.png;src\icons\sync_sprite.png;src\icons\disconnected.png;src\icons\overview.png;src\icons\address-book.png;src\icons\remove.png;src\icons\editpaste.png;src\icons\export.png;src\icons\connected.png;src\icons\tx_deposit.png;src\icons\send.png;src\icons\tx_input.png;src\icons\send_message.png;src\icons\receive.png;src\icons\tx_inout.png;src\icons\add.png;src\icons\transactions.png;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">$(QTDIR)\bin\rcc.exe -name resources src\resources.qrc -o release\qrc_resources.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">RCC src/resources.qrc</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\qrc_resources.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">src\resources.qrc;src\images\splash.png;src\images\cryptonote.png;src\images\clock.gif;src\icons\messages.png;src\icons\unconfirmed.png;src\icons\synced.png;src\icons\mining.png;src\icons\clock1.png;src\icons\editcopy.png;src\icons\clock2.png;src\icons\deposits.png;src\icons\clock3.png;src\icons\transaction.png;src\icons\lock_open.png;src\icons\clock4.png;src\icons\clock5.png;src\icons\tx_mined.png;src\icons\lock_closed.png;src\icons\tx_output.png;src\icons\sync_sprite.png;src\icons\disconnected.png;src\icons\overview.png;src\icons\address-book.png;src\icons\remove.png;src\icons\editpaste.png;src\icons\export.png;src\icons\connected.png;src\icons\tx_deposit.png;src\icons\send.png;src\icons\tx_input.png;src\icons\send_message.png;src\icons\receive.png;src\icons\tx_inout.png;src\icons\add.png;src\icons\transactions.png;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">$(QTDIR)\bin\rcc.exe -name resources src\resources.qrc -o debug\qrc_resources.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">RCC src/resources.qrc</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\qrc_resources.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <None Include="src\icons\send.png" />
+    <None Include="src\icons\send_message.png" />
+    <None Include="src\images\splash.png" />
+    <None Include="src\icons\sync_sprite.png" />
+    <None Include="src\icons\synced.png" />
+    <None Include="src\icons\transaction.png" />
+    <None Include="src\icons\transactions.png" />
+    <None Include="src\icons\tx_deposit.png" />
+    <None Include="src\icons\tx_inout.png" />
+    <None Include="src\icons\tx_input.png" />
+    <None Include="src\icons\tx_mined.png" />
+    <None Include="src\icons\tx_output.png" />
+    <None Include="src\icons\unconfirmed.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
