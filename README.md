@@ -16,8 +16,8 @@ Alternatively, it may be possible to install them using a package manager.
 To acquire the source via git and build the release version, run the following commands:
 ```
 cd ~
-git clone https://github.com/Vetro7/UltraNoteGUI
-cd UltraNoteGUI
+git clone https://github.com/UltraNote/UltraNoteWallet.git 
+cd UltraNoteWallet
 git submodule init
 git submodule update --remote
 ./configure
