@@ -58,7 +58,8 @@ std::string extractPaymentId(const std::string& extra) {
   std::copy(extra.begin(), extra.end(), std::back_inserter(extraVector));
 
   if (!CryptoNote::parseTransactionExtra(extraVector, extraFields)) {
-    throw std::runtime_error("Can't parse extra");
+    std::cout << "Can't parse extra";
+    return "";
   }
 
   std::string result;
