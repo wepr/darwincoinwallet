@@ -27,6 +27,14 @@ You find the executable in the `build/release` directory.
 For a faster build, you can add -jX to the end of the make instruction, where X is the number of threads to use. Example: `make -j8`, for 4 cores with 2 threads each.
 You may also want to run `make clean` after to remove the build files, which are all stored under the build directory.
 
+If you need to build with a specific Qt version or your Qt is installed in a non-standard path you may specify the location like so:
+```
+# when using the Makefile wrapper
+make QT5_ROOT_PATH=~/Qt/5.10.0/clang_64/
+
+# or when you use cmake directly
+cmake -DQT5_ROOT_PATH=~/Qt/5.10.0/clang_64/
+```
 
 ### On Windows:
 Dependencies: MSVC 2013 or later, CMake 3.1 or later, and Boost 1.55, and Qt 5.9 or later. You may download them from:
