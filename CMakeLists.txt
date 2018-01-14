@@ -30,7 +30,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 # load common definitions
 include(CryptoNoteWallet.cmake)
-project(${CN_PROJECT_NAME})
+project(${CN_PROJECT_NAME} C CXX)
 
 # One shouldn't generate the BUILD project directly in the SOURCES folder!
 if ( ${CMAKE_CURRENT_BINARY_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR} )
@@ -130,10 +130,6 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC_SEARCH_PATHS "src/gui/ui")
-
-#if (APPLE)
-#  find_package(Qt5 COMPONENTS PrintSupport REQUIRED)
-#endif ()
 
 # Starting with the QtCore lib, find the bin and root directories
 get_target_property(QT5_LIB_LOCATION Qt5::Core LOCATION_${CMAKE_BUILD_TYPE})
@@ -367,9 +363,6 @@ target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_
 # Platform-dependent properties
 if (APPLE)
   set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/contrib/macos/MacOSXBundleInfo.plist.in")
-
-  #target_link_libraries(${PROJECT_NAME} Qt5::PrintSupport)
-
 elseif (UNIX)
   target_link_libraries(${PROJECT_NAME} -lpthread)
 elseif (WIN32)
