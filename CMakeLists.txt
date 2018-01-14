@@ -1,28 +1,102 @@
-cmake_minimum_required(VERSION 2.8)
+# UltraNote CMakeList.txt
+#
+# Usage:
+#    cd build/release
+#    cmake -DCMAKE_BUILD_TYPE=Release ../..
+#    make -j4
+#
+# Use specific QT5 version or non-standard Qt5 path
+#    cmake -DCMAKE_BUILD_TYPE=Release -DQT5_ROOT_PATH=~/Qt/5.10.0/clang_64/
+#
 
+# some Qt5 features require a newer cmake
+cmake_minimum_required(VERSION 3.1)
+
+# Cmake policies
+# silence AUTO_MOC warnings
+if (POLICY CMP0071)
+  cmake_policy(SET CMP0071 NEW)
+endif ()
+
+# Fix behavior of CMAKE_CXX_STANDARD when targeting macOS.
+if (POLICY CMP0025)
+  cmake_policy(SET CMP0025 NEW)
+endif ()
+
+# Require C++11 standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON)
+
+# load common definitions
 include(CryptoNoteWallet.cmake)
-include(QREncode.cmake)
-
 project(${CN_PROJECT_NAME})
 
-execute_process(COMMAND git log -1 --pretty=format:%h
-WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-OUTPUT_VARIABLE GIT_REVISION)
+# One shouldn't generate the BUILD project directly in the SOURCES folder!
+if ( ${CMAKE_CURRENT_BINARY_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR} )
+  if ( NOT SAME_BUILD_AND_SOURCE_FOLDER_WARNING_ALREADY_ISSUED )
+    message(FATAL_ERROR "It is not advised to BUILD the binaries directly in the SOURCE folder!\n If you want to proceed with this option, just run cmake once again" )
+    set( SAME_BUILD_AND_SOURCE_FOLDER_WARNING_ALREADY_ISSUED TRUE )
+  endif()
+endif()
 
-set(CRYPTONOTE_LIB cryptonote)
-set (CMAKE_PREFIX_PATH "C:\\Qt\\Qt5.6.0\\5.6\\msvc2013_64\\")
-
-include_directories(${CMAKE_BINARY_DIR}
+# pull version from Git tag and revision
+find_package(Git)
+if(GIT_FOUND)
+  exec_program(
+    ${GIT_EXECUTABLE}
     ${CMAKE_CURRENT_SOURCE_DIR}
-    src
-    cryptonote/external
-    cryptonote/include
-    cryptonote/src)
+    ARGS "rev-parse --is-inside-work-tree"
+    OUTPUT_VARIABLE GITWORKTREE )
+  if( "${GITWORKTREE}" STREQUAL "true" )
+    exec_program(
+      ${GIT_EXECUTABLE}
+      ${CMAKE_CURRENT_SOURCE_DIR}
+      ARGS "name-rev --tags --name-only $(git rev-parse HEAD)"
+      OUTPUT_VARIABLE GITTAG )
+    exec_program(
+      ${GIT_EXECUTABLE}
+      ${CMAKE_CURRENT_SOURCE_DIR}
+      ARGS "rev-parse --short HEAD"
+      OUTPUT_VARIABLE GITHASH )
+    exec_program(
+      ${GIT_EXECUTABLE}
+      ${CMAKE_CURRENT_SOURCE_DIR}
+      ARGS "diff-index --name-only HEAD"
+      OUTPUT_VARIABLE GITDIRTY
+      OUTPUT_STRIP_TRAILING_WHITESPACE)
+    if(GITDIRTY)
+      set (UltraNote_VERSION "${GITTAG}")
+      set (UltraNote_GITREV "${GITHASH}-dirty")
+    else()
+      set (UltraNote_VERSION  "${GITTAG}")
+      set (UltraNote_GITREV "${GITHASH}")
+    endif()
+  endif()
+endif()
 
-find_package(Qt5Gui REQUIRED)
-find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Network REQUIRED)
+if ("${UltraNote_VERSION}" STREQUAL "undefined" OR NOT "${UltraNote_VERSION}")
+  set (UltraNote_VERSION "${CN_VERSION}")
+endif ()
 
+string(TIMESTAMP UltraNote_BUILDTIME UTC)
+
+message( STATUS "Building ${PROJECT_NAME} ${UltraNote_VERSION} ${UltraNote_GITREV} ${UltraNote_BUILDTIME}")
+
+# Note: cryponote expects GIT revision in VERSION variable
+set(VERSION "${UltraNote_VERSION}")
+configure_file("cryptonote/src/version.h.in" "version.h")
+configure_file("src/CryptoNoteWalletConfig.h.in" "CryptoNoteWalletConfig.h")
+
+# export for C compiler
+add_definitions(-DVERSION=\"${UltraNote_VERSION}\")
+add_definitions(-DGIT_REVISION=\"${UltraNote_GITREV}\")
+
+# ---------------------------------------------------------------------
+# Collect Build Dependencies
+#
+
+# Find Boost
 set(Boost_USE_STATIC_LIBS ON)
 if(WIN32)
   set(Boost_USE_STATIC_RUNTIME OFF)
@@ -30,23 +104,63 @@ else(WIN32)
   set(Boost_USE_STATIC_RUNTIME ON)
 endif(WIN32)
 
-find_package(Boost 1.55 REQUIRED COMPONENTS date_time filesystem program_options regex serialization system thread chrono)
+find_package(Boost 1.55 COMPONENTS date_time filesystem program_options regex serialization system thread chrono REQUIRED)
 if ((${Boost_MAJOR_VERSION} EQUAL 1) AND (${Boost_MINOR_VERSION} EQUAL 54))
-	message(SEND_ERROR "Boost version 1.54 is unsupported, more details are available here http://goo.gl/RrCFmA")
+  message(SEND_ERROR "Boost version 1.54 is unsupported, more details are available here http://goo.gl/RrCFmA")
 endif ()
 
 include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
 
-set(VERSION "")
-configure_file("cryptonote/src/version.h.in" "version.h")
-configure_file("src/CryptoNoteWalletConfig.h.in" "CryptoNoteWalletConfig.h")
+# Find Qt5
+# Set up a list of common QT installation paths, i.e.
+#  "~/Qt/5.10.0/clang_64/"
+#  "C:\\Qt\\Qt5.6.0\\5.6\\msvc2013_64\\"
+set( QT5_ROOT_PATH CACHE PATH "Qt5 root directory (i.e. where the 'bin' folder lies)" )
+if ( QT5_ROOT_PATH )
+  list( APPEND CMAKE_PREFIX_PATH ${QT5_ROOT_PATH} )
+endif()
 
-add_definitions(-DVERSION=\"${CN_VERSION}\")
-add_definitions(-DGIT_REVISION=\"${GIT_REVISION}\")
+# in the case no Qt5Config.cmake file could be found, cmake will explicitly ask the user for the QT5_DIR containing it!
+# thus no need to keep additional variables and checks
 
+find_package(Qt5 COMPONENTS Core Gui Widgets Network REQUIRED)
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOUIC_SEARCH_PATHS "src/gui/ui")
 
+#if (APPLE)
+#  find_package(Qt5 COMPONENTS PrintSupport REQUIRED)
+#endif ()
+
+# Starting with the QtCore lib, find the bin and root directories
+get_target_property(QT5_LIB_LOCATION Qt5::Core LOCATION_${CMAKE_BUILD_TYPE})
+get_filename_component(QT_BINARY_DIR ${QT5_LIB_LOCATION} DIRECTORY)
+
+# Apple uses frameworks - move up until we get to the base directory to set the bin directory properly
+if ( APPLE )
+  get_filename_component(QT_BINARY_DIR ${QT_BINARY_DIR} DIRECTORY)
+  get_filename_component(QT_BINARY_DIR ${QT_BINARY_DIR} DIRECTORY)
+  set(QT_BINARY_DIR "${QT_BINARY_DIR}/bin")
+  set( MACDEPLOYQT "${QT_BINARY_DIR}/macdeployqt" )
+endif ()
+
+# set QT5_ROOT_PATH if it wasn't set by the user
+if ( NOT QT5_ROOT_PATH )
+  get_filename_component(QT5_ROOT_PATH ${QT_BINARY_DIR} DIRECTORY)
+endif ()
+
+# ---------------------------------------------------------------------
+# Add UltraNote Sources
+#
+
+# Add libqrencode
+include(QREncode.cmake)
+
+# UltraNote Core Library
+set(CRYPTONOTE_LIB cryptonote)
 set(CRYPTONOTE_SOURCES
   cryptonote/external/miniupnpc/connecthostport.c
   cryptonote/external/miniupnpc/igd_desc_parse.c
@@ -175,19 +289,23 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/BlockchainExplorer/BlockchainExplorerErrors.cpp
 )
 
+include_directories(${CMAKE_BINARY_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}
+  src
+  cryptonote/external
+  cryptonote/include
+  cryptonote/src
+)
+
 file(GLOB_RECURSE SOURCES src/*.cpp)
 file(GLOB_RECURSE HEADERS src/*.h)
-file(GLOB_RECURSE FORMS src/gui/ui/*.ui)
-
 set(QRC src/resources.qrc)
 
-qt5_wrap_ui(UIS ${FORMS})
-qt5_add_resources(RCC ${QRC})
-
-
+# Detect Build Platform
+#
 if (WIN32)
   if (NOT MSVC)
-	message(FATAL_ERROR "Only MSVC is supported on this platform")
+    message(FATAL_ERROR "Only MSVC is supported on this platform")
   endif ()
   add_definitions(/D_CRT_SECURE_NO_WARNINGS /D_WIN32_WINNT=0x0600 /DSTATICLIB)
   include_directories(cryptonote/src/platform/msc)
@@ -200,139 +318,115 @@ if (WIN32)
 elseif (UNIX)
   set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} cryptonote/external/miniupnpc/minissdpc.c)
   if (APPLE)
+    set(PLATFORM_DIR OSX)
+    set(BUILD_PLATFORM MACOSX_BUNDLE)
+    set(CMAKE_OSX_DEPLOYMENT_TARGET 10.10)
+    set(MACOSX_BUNDLE_GUI_IDENTIFIER ${CN_IDENTIFIER})
+    set(MACOSX_BUNDLE_INFO_STRING ${CN_SUMMARY})
+    set(MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME})
+    set(MACOSX_BUNDLE_LONG_VERSION_STRING  "Version ${UltraNote_VERSION}-${UltraNote_GITREV}")
+    set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${UltraNote_VERSION}")
+    set(MACOSX_BUNDLE_BUNDLE_VERSION "${UltraNote_VERSION}")
+    set(MACOSX_BUNDLE_COPYRIGHT "${CN_COPYRIGHT}")
+
     enable_language(ASM)
+    include_directories(/usr/include/malloc)
     file(GLOB_RECURSE OBJC_SOURCES src/*.mm)
     set(SOURCES ${SOURCES} ${OBJC_SOURCES})
-    set(PLATFORM_DIR OSX)
-    set(MACOSX_BUNDLE_INFO_STRING "Cryptonote GUI wallet")
-    set(MACOSX_BUNDLE_LONG_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
-    set(MACOSX_BUNDLE_BUNDLE_NAME UltraNoteWallet)
-    set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
-    set(MACOSX_BUNDLE_BUNDLE_VERSION "$${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
-
-    find_package(Qt5PrintSupport REQUIRED)
-
-    include_directories(/usr/include/malloc)
-
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes -std=c++11 -stdlib=libc++")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -maes -D_DARWIN_C_SOURCE")
+    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes -D_DARWIN_C_SOURCE")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -framework Cocoa -framework OpenGL -framework CoreFoundation -framework Carbon -framework IOKit -L/usr/lib")
 
     set(MACOSX_BUNDLE_ICON_FILE cryptonote.icns)
     set(APPLICATION_ICON src/images/cryptonote.icns)
     set_source_files_properties(${APPLICATION_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
-
-    set(BUILD_PLATFORM MACOSX_BUNDLE)
     set(BUILD_RESOURCES ${APPLICATION_ICON})
-	
-    GET_TARGET_PROPERTY(QT_LIB_DIR "${Qt5Widgets_LIBRARIES}" LOCATION)
-    GET_FILENAME_COMPONENT(QT_LIB_DIR "${QT_LIB_DIR}" PATH)
+
   else(APPLE)
     set(PLATFORM_DIR Linux)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes -std=c++11")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes -std=c11")
+    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes -std=c++11")
+    #set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes -std=c11")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes")
   endif (APPLE)
 endif ()
 
+# Build CryptoNote library
 include_directories(cryptonote/src/Platform/${PLATFORM_DIR})
 file(GLOB PLATFORM_SOURCES cryptonote/src/Platform/${PLATFORM_DIR}/System/*)
 set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES})
-
 add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
 set_target_properties(${CRYPTONOTE_LIB} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES})
 
-add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC})
+# Build UltraNote app
+add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${QRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${QRENCODE_LIB})
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${QRENCODE_LIB} Qt5::Gui Qt5::Widgets Qt5::Network)
 
+# Platform-dependent properties
 if (APPLE)
-  qt5_use_modules(${PROJECT_NAME} PrintSupport)
+  set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/contrib/macos/MacOSXBundleInfo.plist.in")
+
+  #target_link_libraries(${PROJECT_NAME} Qt5::PrintSupport)
+
 elseif (UNIX)
   target_link_libraries(${PROJECT_NAME} -lpthread)
 elseif (WIN32)
   target_link_libraries(${PROJECT_NAME} Imm32 Iphlpapi Winmm)
 endif (APPLE)
 
-qt5_use_modules(${PROJECT_NAME} Widgets Gui Network)
-
+# ---------------------------------------------------------------
 # Installation
-
-set(CPACK_PACKAGE_NAME ${CN_PROJECT_NAME})
-if (CN_VERSION_RELEASE)
-    set(CPACK_PACKAGE_VERSION ${CN_VERSION}-${CN_VERSION_RELEASE})
-elseif ()
-    set(CPACK_PACKAGE_VERSION ${CN_VERSION})
-endif ()
-set(CPACK_PACKAGE_VENDOR "UltraNote Foundation")
-set(CPACK_PACKAGE_CONTACT "https://ultranote.org/")
+#
+set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
+set(CPACK_PACKAGE_VERSION ${UltraNote_VERSION})
+set(CPACK_PACKAGE_VENDOR ${CN_VENDOR})
+set(CPACK_PACKAGE_CONTACT ${CN_CONTACT})
+set(CPACK_PACKAGE_DESCRIPTION ${CN_DESCRIPTION})
 set(CPACK_STRIP_FILES ON)
 if (APPLE)
-    set(CPACK_GENERATOR DragNDrop)
-    install(TARGETS ${PROJECT_NAME} BUNDLE DESTINATION .)
-    set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
+  set(CPACK_GENERATOR DragNDrop)
+  set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
+
+  # Run Qt5 Packager for MacOS Bundles
+  #set(ARTIFACT_LOCATION $<TARGET_FILE_NAME:${PROJECT_NAME}>)
+  #get_target_property(ARTIFACT_LOCATION ${PROJECT_NAME} LOCATION_${CMAKE_BUILD_TYPE})
+  #message(STATUS "Bundling Qt5 with ${ARTIFACT_LOCATION}")
+
+  install(CODE "execute_process( COMMAND \"${MACDEPLOYQT}\" \"${PROJECT_NAME}.app\")" COMPONENT Runtime)
+  install(TARGETS ${PROJECT_NAME} BUNDLE DESTINATION . COMPONENT Runtime)
+
 elseif (UNIX)
-    install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
-    install(FILES src/ultranotewallet.desktop DESTINATION share/applications)
-    install(FILES src/images/cryptonote.png DESTINATION share/pixmaps RENAME ultranote.png)
-    install(FILES copyright DESTINATION share/doc/ultranotewallet)
+  install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
+  install(FILES src/ultranotewallet.desktop DESTINATION share/applications)
+  install(FILES src/images/cryptonote.png DESTINATION share/pixmaps RENAME ultranote.png)
+  install(FILES copyright DESTINATION share/doc/ultranotewallet)
 
 	SET(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 	SET(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
 	SET(CPACK_PACKAGE_ICON src/images/cryptonote.png)
-	
-    if (NOT PACKRPM)
-        set(CPACK_GENERATOR DEB)
-        set(CPACK_DEBIAN_PACKAGE_NAME ${CPACK_PACKAGE_NAME})
-        set(CPACK_SYSTEM_NAME amd64)
-        set(CPACK_DEBIAN_PACKAGE_MAINTAINER "${CPACK_PACKAGE_VENDOR} <xrydev@gmail.com>")
-        set(CPACK_DEBIAN_PACKAGE_SECTION Office)
-        set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
-        set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "UltraNote XUN wallet
- UltraNote is a decentrilized privacy protected peer-to-peer
- cryptocurrency and untraceable encrypted messaging system. UltraNote is
- open-source; its design is public, nobody owns or controls UltraNote and
- everyone can take part.
- .
- Features of the UltraNote wallet listed bellow:
- * Classic Bitcoin alike appearance in CryptoNote based cryptocurrency,
-   made with QT and open-source.
- * Instant anonymous XUN transfers and transfers notifications
- * Instant untraceable encrypted messages transfers and notifications
- * Safe and secure, full UltraNote network node in wallet, fast network
-   syncronization.
- * Wallet encryption
- * Fast and hardware optimized
- * Open and easy. Private keys can be exported into other clients.")
-set(CPACK_PACKAGE_FILE_NAME "${CPACK_DEBIAN_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}.${CPACK_SYSTEM_NAME}")
-	else ()
-        set(CPACK_GENERATOR RPM)
-        set(CPACK_SYSTEM_NAME x86_64)
-        if (${VERSION_RELEASE})
-            set(CPACK_RPM_PACKAGE_RELEASE ${VERSION_RELEASE})
-        endif ()
-        set(CPACK_RPM_PACKAGE_LICENSE "GPL3")
-        set(CPACK_RPM_PACKAGE_GROUP Office)
-        set(CPACK_RPM_PACKAGE_REQUIRES "qt5-qtbase >= 5.3.2, qt5-qtbase-gui >= 5.3.2")
-        set(CPACK_RPM_PACKAGE_SUMMARY "UltraNote wallet")
-        set(CPACK_RPM_PACKAGE_DESCRIPTION "Open-source UltraNote GUI wallet
- UltraNote is a decentrilized privacy protected peer-to-peer
- cryptocurrency and untraceable encrypted messaging system. UltraNote is
- open-source; its design is public, nobody owns or controls UltraNote and
- everyone can take part.
 
- Features of the UltraNote wallet listed bellow:
- *Classic Bitcoin alike appearance in CryptoNote based cryptocurrency,
-    made with QT and open-source.
- *Instant anonymous UltraNote transfers and transfers notifications
- *Instant untraceable encrypted messages transfers and notifications
- *Safe and secure, full UltraNote network node in wallet, fast network
-    syncronization.
- *Wallet encryption
- *Fast and hardware optimized
- *Open and easy. Private keys can be exported into other clients.")
-set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}.${CPACK_SYSTEM_NAME}")
-    endif ()
+  if (NOT PACKRPM)
+    set(CPACK_GENERATOR DEB)
+    set(CPACK_DEBIAN_PACKAGE_NAME ${CPACK_PACKAGE_NAME})
+    set(CPACK_SYSTEM_NAME amd64)
+    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "${CPACK_PACKAGE_VENDOR} <xrydev@gmail.com>")
+    set(CPACK_DEBIAN_PACKAGE_SECTION Office)
+    set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+    set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "${CN_DESCRIPTION}")
+    set(CPACK_PACKAGE_FILE_NAME "${CPACK_DEBIAN_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}.${CPACK_SYSTEM_NAME}")
+	else ()
+    set(CPACK_GENERATOR RPM)
+    set(CPACK_SYSTEM_NAME x86_64)
+    #set(CPACK_RPM_PACKAGE_RELEASE ${VERSION_RELEASE})
+    set(CPACK_RPM_PACKAGE_LICENSE "GPL3")
+    set(CPACK_RPM_PACKAGE_GROUP Office)
+    set(CPACK_RPM_PACKAGE_REQUIRES "qt5-qtbase >= 5.3.2, qt5-qtbase-gui >= 5.3.2")
+    set(CPACK_RPM_PACKAGE_SUMMARY "${CN_SUMMARY}")
+    set(CPACK_RPM_PACKAGE_DESCRIPTION "${CN_DESCRIPTION}")
+    set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}.${CPACK_SYSTEM_NAME}")
+  endif ()
 elseif (WIN32)
   install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION .)
   set(CPACK_GENERATOR ZIP)
