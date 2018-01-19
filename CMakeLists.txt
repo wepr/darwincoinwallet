@@ -319,7 +319,6 @@ elseif (UNIX)
     include_directories(/usr/include/malloc)
     file(GLOB_RECURSE OBJC_SOURCES src/*.mm)
     set(SOURCES ${SOURCES} ${OBJC_SOURCES})
-    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes -D_DARWIN_C_SOURCE")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -framework Cocoa -framework OpenGL -framework CoreFoundation -framework Carbon -framework IOKit -L/usr/lib")
 
@@ -330,8 +329,6 @@ elseif (UNIX)
 
   else(APPLE)
     set(PLATFORM_DIR Linux)
-    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes -std=c++11")
-    #set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes -std=c11")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes")
   endif (APPLE)
@@ -381,7 +378,7 @@ elseif (UNIX)
   install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
   install(FILES src/ultranotewallet.desktop DESTINATION share/applications)
   install(FILES src/images/cryptonote.png DESTINATION share/pixmaps RENAME ultranote.png)
-  install(FILES copyright DESTINATION share/doc/ultranotewallet)
+  install(FILES COPYING DESTINATION share/doc/ultranotewallet)
 
 	SET(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 	SET(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
@@ -409,9 +406,35 @@ elseif (UNIX)
   endif ()
 elseif (WIN32)
   find_program(WINDEPLOYQT windeployqt PATHS ${QT5_ROOT_PATH}/bin/)
+
+  set(CPACK_GENERATOR NSIS)
+  set(CPACK_PACKAGE_INSTALL_DIRECTORY ${PROJECT_NAME})
+  set(CPACK_NSIS_MODIFY_PATH ON)
+  set(CPACK_RESOURCE_FILE_LICENSE COPYING)
+
   install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION .)
-  install(CODE "execute_process( COMMAND \"${WINDEPLOYQT}\" \"--release\" \"--compiler-runtime\" ${PROJECT_NAME}\")" COMPONENT Runtime)
-  set(CPACK_GENERATOR ZIP)
+  add_custom_target(windeployqt ALL
+    ${WINDEPLOYQT}
+    --dir ${PROJECT_BINARY_DIR}/deploy
+    --release
+    --compiler-runtime
+    $<TARGET_FILE:${PROJECT_NAME}>
+    DEPENDS ${PROJECT_NAME}
+    COMMENT "Preparing Qt runtime dependencies")
+  install(DIRECTORY ${PROJECT_BINARY_DIR}/deploy/ DESTINATION .)
+
+  IF(CMAKE_CL_64)
+     SET(CMAKE_MSVC_ARCH x64)
+   ELSE(CMAKE_CL_64)
+     SET(CMAKE_MSVC_ARCH x86)
+  ENDIF(CMAKE_CL_64)
+
+  FIND_PROGRAM(MSVC_REDIST
+    NAMES vcredist_${CMAKE_MSVC_ARCH}.exe
+    PATHS ${PROJECT_BINARY_DIR}/deploy/)
+  GET_FILENAME_COMPONENT(vcredist_name "${MSVC_REDIST}" NAME)
+  set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS "ExecWait '\\\"$INSTDIR\\\\vcredist_${CMAKE_MSVC_ARCH}.exe\\\" /install /quiet /norestart'")
+
 endif (APPLE)
 
 include(CPack)
