@@ -10,7 +10,7 @@
 #
 
 # some Qt5 features require a newer cmake
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.9)
 
 # Cmake policies
 # silence AUTO_MOC warnings
@@ -131,21 +131,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC_SEARCH_PATHS "src/gui/ui")
 
-# Starting with the QtCore lib, find the bin and root directories
-get_target_property(QT5_LIB_LOCATION Qt5::Core LOCATION_${CMAKE_BUILD_TYPE})
-get_filename_component(QT_BINARY_DIR ${QT5_LIB_LOCATION} DIRECTORY)
-
-# Apple uses frameworks - move up until we get to the base directory to set the bin directory properly
-if ( APPLE )
-  get_filename_component(QT_BINARY_DIR ${QT_BINARY_DIR} DIRECTORY)
-  get_filename_component(QT_BINARY_DIR ${QT_BINARY_DIR} DIRECTORY)
-  set(QT_BINARY_DIR "${QT_BINARY_DIR}/bin")
-  set( MACDEPLOYQT "${QT_BINARY_DIR}/macdeployqt" )
-endif ()
-
 # set QT5_ROOT_PATH if it wasn't set by the user
 if ( NOT QT5_ROOT_PATH )
-  get_filename_component(QT5_ROOT_PATH ${QT_BINARY_DIR} DIRECTORY)
+  get_target_property(QT5_LIB_LOCATION Qt5::Core LOCATION_${CMAKE_BUILD_TYPE})
+  get_filename_component(QT5_LIB_LOCATION ${QT5_LIB_LOCATION} DIRECTORY)
+  get_filename_component(QT5_ROOT_PATH ${QT5_LIB_LOCATION} DIRECTORY)
 endif ()
 
 # ---------------------------------------------------------------------
@@ -381,12 +371,9 @@ set(CPACK_STRIP_FILES ON)
 if (APPLE)
   set(CPACK_GENERATOR DragNDrop)
   set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
+  find_program(MACDEPLOYQT macdeployqt PATHS ${QT5_ROOT_PATH}/bin/)
 
   # Run Qt5 Packager for MacOS Bundles
-  #set(ARTIFACT_LOCATION $<TARGET_FILE_NAME:${PROJECT_NAME}>)
-  #get_target_property(ARTIFACT_LOCATION ${PROJECT_NAME} LOCATION_${CMAKE_BUILD_TYPE})
-  #message(STATUS "Bundling Qt5 with ${ARTIFACT_LOCATION}")
-
   install(CODE "execute_process( COMMAND \"${MACDEPLOYQT}\" \"${PROJECT_NAME}.app\")" COMPONENT Runtime)
   install(TARGETS ${PROJECT_NAME} BUNDLE DESTINATION . COMPONENT Runtime)
 
@@ -421,7 +408,9 @@ elseif (UNIX)
     set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}.${CPACK_SYSTEM_NAME}")
   endif ()
 elseif (WIN32)
+  find_program(WINDEPLOYQT windeployqt PATHS ${QT5_ROOT_PATH}/bin/)
   install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION .)
+  install(CODE "execute_process( COMMAND \"${WINDEPLOYQT}\" \"--release\" \"--compiler-runtime\" ${PROJECT_NAME}\")" COMPONENT Runtime)
   set(CPACK_GENERATOR ZIP)
 endif (APPLE)
 

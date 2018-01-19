@@ -22,12 +22,12 @@ else
 endif
 
 ifdef IS_WIN
-	WINDOWS_BUILD_OPT := "-G \"Visual Studio 14 2015\""
+	WINDOWS_BUILD_OPT := "-G \"Visual Studio 15 2017\""
 	ifeq ($(WINDOWS_BUILD),Win64)
-		WINDOWS_BUILD_OPT := "-G \"Visual Studio 14 2015 Win64\""
+		WINDOWS_BUILD_OPT := "-G \"Visual Studio 15 2017 Win64\""
 	else
 		ifeq ($(WINDOWS_BUILD),Win32)
-			WINDOWS_BUILD_OPT := "-G \"Visual Studio 14 2015\""
+			WINDOWS_BUILD_OPT := "-G \"Visual Studio 15 2017\""
 		else
 			ifdef WINDOWS_BUILD
 				WINDOWS_BUILD_OPT := "-G $(WINDOWS_BUILD)"
