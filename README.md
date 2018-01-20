@@ -1,78 +1,119 @@
 ## Building UltraNote Wallet
 
-### On *nix:
+### On Linux
 
-Dependencies: GCC 4.7.3 or later, CMake 3.1 or later, Boost 1.55 or later, and Qt 5.9 or later.
+Dependencies: GCC 4.7.3 or later, CMake 3.9 or later, Boost 1.55 or later, and Qt 5.9 or later.
 
-You may download them from:
+You may download them from here:
 
-- http://gcc.gnu.org/
-- http://www.cmake.org/
-- http://www.boost.org/
+- https://gcc.gnu.org/
+- https://www.cmake.org/
+- https://www.boost.org/
 - https://www.qt.io
 
-Alternatively, it may be possible to install them using a package manager.
+or install them using your distribution's package manager.
 
-To acquire the source via git and build the release version, run the following commands:
+Clone the source repository with git and build the release version with the following commands:
 ```
-cd ~
-git clone https://github.com/UltraNote/UltraNoteWallet.git
+git clone https://github.com/xun-project/UltraNoteWallet.git
 cd UltraNoteWallet
 git submodule init
-git submodule update --remote
-make
+git submodule update
+make package-deb
 ```
 
-You find the executable in the `build/release` directory.
-For a faster build, you can add -jX to the end of the make instruction, where X is the number of threads to use. Example: `make -j8`, for 4 cores with 2 threads each.
-You may also want to run `make clean` after to remove the build files, which are all stored under the build directory.
+The top-level Makefile is actually a wrapper for cmake. To use cmake directly, call
+```
+mkdir -p build/release
+cd build/release
+cmake -DCMAKE_BUILD_TYPE=Release ../..
+make -j4
+make package-deb
+```
 
-If you need to build with a specific Qt version or your Qt is installed in a non-standard path you may specify the location like so:
+You can find the executable and the DEB package under `build/release`.
+
+### On OSX
+
+Install dependencies with Homebrew:
+
+```
+brew install cmake qt
+git clone https://github.com/xun-project/UltraNoteWallet.git
+cd UltraNoteWallet
+git submodule init
+git submodule update
+make -j4
+```
+
+Qt 5.10 installed via Homebrew is difficult to bundle with an application. If you care about shipping UltraNoteWallet as DMG image for install on a different system, download QT from https://qt.io and run the following command instead:
+
 ```
 # when using the Makefile wrapper
 make QT5_ROOT_PATH=~/Qt/5.10.0/clang_64/
 
 # or when you use cmake directly
-cmake -DQT5_ROOT_PATH=~/Qt/5.10.0/clang_64/
+cd build/release
+cmake -DQT5_ROOT_PATH=~/Qt/5.10.0/clang_64/ ../..
+make -j4
 ```
 
-### On Windows:
-Dependencies: MSVC 2013 or later, CMake 3.1 or later, and Boost 1.55, and Qt 5.9 or later. You may download them from:
+Set `QT5_ROOT_PATH` to the directory where you have installed Qt .
 
-- http://www.microsoft.com/
-- http://www.cmake.org/
-- http://www.boost.org/
-- https://www.qt.io
 
-To build run one of the following commands:
-```
-# for 64bit builds
-make WINDOWS_BUILD=Win64
-
-# for 32bit builds
-make WINDOWS_BUILD=Win32
-
-# to select a specific Visual Studio version
-make WINDOWS_BUILD="Visual Studio 14 2015"
-```
-
-And then open and build the generated project file, located in the build/release directory, with Visual Studio. To use a different Visual Studio version, specify it's full name instead. Default Windows build use Visual Studio 14 2015. It may also be possible to build with other compilers, like MinGW.
-
-## Building Packages:
-To build a DEB file, from the directory with this file, run:
-```
-make package-deb
-```
-
-To build an RPM file, from the directory with this file, run:
-```
-make package-rpm
-```
-
-To build an OS X DMG, from the directory with this file, run:
+To build an OS X DMG image for distribution, run from either top-level or `build/release`:
 ```
 make package-dmg
 ```
+
+Note that the distributed app will not be signed and users who install it will have to explicitly allow the app to run at first start via `System Preferences > Security & Privacy`.
+
+### On Windows:
+
+First install all dependencies:
+* MSVC 2013 or later from https://www.microsoft.com/
+* CMake 3.9 or later from https://www.cmake.org/
+* Boost 1.55 or later from https://www.boost.org/
+* Qt 5.9 or later from https://www.qt.io
+* Git 2.16 or later from https://git-scm.com/download/win
+* (optional) NSIS from http://nsis.sourceforge.net/Download
+
+Install with Git Bash and OpenSSL support to make the following commands work. Start a Git Bash terminal (yes, the forward slashes in paths are correct). To build run the following commands and make sure you change the paths to match your installed versions:
+
+```
+# fetch sources
+git clone https://github.com/xun-project/UltraNoteWallet.git
+cd UltraNoteWallet
+git submodule init
+git submodule update
+
+# prepare build
+mkdir -p build/release
+export VCINSTALLDIR=/C/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/
+
+# for 64bit builds
+make WINDOWS_BUILD=Win64 QT5_ROOT_PATH=C/Qt/5.9.2/msvc2015
+
+# for 32bit builds
+make WINDOWS_BUILD=Win32 QT5_ROOT_PATH=C/Qt/5.9.2/msvc2015
+
+# to select a specific Visual Studio version
+make WINDOWS_BUILD="Visual Studio 15 2017" QT5_ROOT_PATH=C/Qt/5.9.2/msvc2015
+```
+
+The above commands use cmake internally. If you need more control, you may call cmake directly:
+
+```
+cmake -DCMAKE_BUILD_TYPE=Release -DQT5_ROOT_PATH=C/Qt/5.9.2/msvc2015 -G "Visual Studio 15 2017" ../..
+cmake --build . --config Release
+cpack -C Release
+```
+
+Alternatively you can use the Visual Studio GUI for building. To do so, run just the first cmake command above from the command line, then open the file `build/release/UltraNoteWallet.sln` in Visual Studio. Select build type 'Release' and build the target 'UltraNoteWallet'. For a distribution package build target 'PACKAGE'.
+
+QT5 up to version 5.9.2 contains a bug that prevents us from embedding the MSVC redistributable DLLs into the target package. When you intend to distribute UltraNoteWallet, you must distribute `vcredist_x86.exe` for 32bit or `vcredist_x64.exe` for Win64 separately.
+
+Note that the Windows packages are not signed.
 
 
 Good luck!
