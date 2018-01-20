@@ -82,6 +82,11 @@ package-dmg: make-release-dir
 	cd build/release && cmake -DCMAKE_BUILD_TYPE=Release $(QT5_OPT) ../..
 	$(MAKE) -C build/release -j4 package
 
+package-msi: make-release-dir
+	cd build/release && cmake -DCMAKE_BUILD_TYPE=Release $(QT5_OPT) $(WINDOWS_BUILD_OPT) ../..
+	cd build/release && cmake --build . --config Release
+	cd build/release && cpack -C Release
+
 clean:
 	$(RM) build/release build/debug
 

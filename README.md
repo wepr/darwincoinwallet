@@ -70,6 +70,8 @@ Note that the distributed app will not be signed and users who install it will h
 
 ### On Windows:
 
+Note that the Windows packages are not signed.
+
 First install all dependencies:
 * MSVC 2013 or later from https://www.microsoft.com/
 * CMake 3.9 or later from https://www.cmake.org/
@@ -91,29 +93,29 @@ git submodule update
 mkdir -p build/release
 export VCINSTALLDIR=/C/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/
 
-# for 64bit builds
-make WINDOWS_BUILD=Win64 QT5_ROOT_PATH=C/Qt/5.9.2/msvc2015
-
-# for 32bit builds
-make WINDOWS_BUILD=Win32 QT5_ROOT_PATH=C/Qt/5.9.2/msvc2015
-
-# to select a specific Visual Studio version
-make WINDOWS_BUILD="Visual Studio 15 2017" QT5_ROOT_PATH=C/Qt/5.9.2/msvc2015
-```
-
-The above commands use cmake internally. If you need more control, you may call cmake directly:
-
-```
+# build
+cd build/release
 cmake -DCMAKE_BUILD_TYPE=Release -DQT5_ROOT_PATH=C/Qt/5.9.2/msvc2015 -G "Visual Studio 15 2017" ../..
 cmake --build . --config Release
 cpack -C Release
 ```
 
-Alternatively you can use the Visual Studio GUI for building. To do so, run just the first cmake command above from the command line, then open the file `build/release/UltraNoteWallet.sln` in Visual Studio. Select build type 'Release' and build the target 'UltraNoteWallet'. For a distribution package build target 'PACKAGE'.
+Alternatively you can use the Visual Studio GUI for building. To do so, run just the first cmake command above from the command line, then open the generated file `build/release/UltraNoteWallet.sln` in Visual Studio. Select build type 'Release' and build the target 'UltraNoteWallet' or for a distribution package build target 'PACKAGE'.
 
-QT5 up to version 5.9.2 contains a bug that prevents us from embedding the MSVC redistributable DLLs into the target package. When you intend to distribute UltraNoteWallet, you must distribute `vcredist_x86.exe` for 32bit or `vcredist_x64.exe` for Win64 separately.
+**Critical note when you intend to distribute UltraNoteWallet:** QT5 up to version 5.9.2 contains a bug that prevents us from embedding the MSVC redistributable DLLs into the target package when built with Visual Studio. You must globally set the environment variable `VCINSTALLDIR` before you start Visual Studio. Alternatively you must distribute `vcredist_x86.exe` for 32bit or `vcredist_x64.exe` for Win64 separately.
 
-Note that the Windows packages are not signed.
 
+The above commands use cmake directly. If you happen to have `make` installed on your system a more convenient method is to call the following command from the repo top-level directory:
+
+```
+# for 64bit builds
+make WINDOWS_BUILD=Win64 QT5_ROOT_PATH=C/Qt/5.9.2/msvc2015 package-msi
+
+# for 32bit builds
+make WINDOWS_BUILD=Win32 QT5_ROOT_PATH=C/Qt/5.9.2/msvc2015  package-msi
+
+# to select a specific Visual Studio version
+make WINDOWS_BUILD="Visual Studio 15 2017" QT5_ROOT_PATH=C/Qt/5.9.2/msvc2015  package-msi
+```
 
 Good luck!
