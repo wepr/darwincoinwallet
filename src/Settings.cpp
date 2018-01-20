@@ -57,8 +57,8 @@ void Settings::load() {
   }
 
   QStringList defaultPoolList;
-  //defaultPoolList << "xdn.miner.center:4555" << "duckpool.mooo.com:2222" << "xdn.poolto.be:11010";
-  defaultPoolList << "alpha.ultranote.org:5555" << "alpha.ultranote.org:7777";
+  //defaultPoolList << "alpha.ultranote.org:5555" << "beta.ultranote.org:5555" << "delta.ultranote.org:5551" << "gamma.ultranote.org:5555";
+defaultPoolList << "alpha.ultranote.org:5555" << "beta.ultranote.org:5555" << "delta.ultranote.org:5551" << "gamma.ultranote.org:5555";
   if (!m_settings.contains(OPTION_MINING_POOLS)) {
     setMiningPoolList(QStringList() << defaultPoolList);
   } else {
