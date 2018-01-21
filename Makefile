@@ -83,7 +83,12 @@ package-dmg: make-release-dir
 	$(MAKE) -C build/release -j4 package
 
 package-msi: make-release-dir
-	cd build/release && cmake -DCMAKE_BUILD_TYPE=Release $(QT5_OPT) $(WINDOWS_BUILD_OPT) ../..
+	cd build/release && cmake -DCMAKE_BUILD_TYPE=Release $(QT5_OPT) $(WINDOWS_BUILD_OPT) -DPACKMSI=1 ../..
+	cd build/release && cmake --build . --config Release
+	cd build/release && cpack -C Release
+
+package-zip: make-release-dir
+	cd build/release && cmake -DCMAKE_BUILD_TYPE=Release $(QT5_OPT) $(WINDOWS_BUILD_OPT) -DPACKZIP=1 ../..
 	cd build/release && cmake --build . --config Release
 	cd build/release && cpack -C Release
 
