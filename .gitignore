@@ -6,3 +6,4 @@ uncrustify.cfg
 *.o
 *.a
 CMakeFiles
+.DS_Store

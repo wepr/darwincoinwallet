@@ -1,3 +1,0 @@
-#!/bin/bash
-qmake -project && qmake
-cat Makefile-prepend Makefile > $$.tmp && mv $$.tmp Makefile
