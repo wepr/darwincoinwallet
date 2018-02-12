@@ -95,7 +95,7 @@ export VCINSTALLDIR=/C/Program Files (x86)/Microsoft Visual Studio/2017/Communit
 
 # build
 cd build/release
-cmake -DCMAKE_BUILD_TYPE=Release -DQT5_ROOT_PATH=C/Qt/5.9.2/msvc2015 -G "Visual Studio 15 2017" ../..
+cmake -DCMAKE_BUILD_TYPE=Release -DQT5_ROOT_PATH=C/Qt/5.9.2/msvc2015 -G "Visual Studio 15 2017 Win64" ../..
 cmake --build . --config Release
 cpack -C Release
 ```
