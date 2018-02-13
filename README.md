@@ -83,6 +83,8 @@ First install all dependencies:
 Install with Git Bash and OpenSSL support to make the following commands work. Start a Git Bash terminal (yes, the forward slashes in paths are correct). To build run the following commands and make sure you change the paths to match your installed versions:
 
 ```
+# Add C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC to your system path.
+
 # fetch sources
 git clone https://github.com/xun-project/UltraNoteWallet.git
 cd UltraNoteWallet
@@ -91,7 +93,6 @@ git submodule update
 
 # prepare build
 mkdir -p build/release
-export VCINSTALLDIR=/C/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/
 
 # build
 cd build/release
