@@ -66,33 +66,33 @@ if(GIT_FOUND)
       OUTPUT_VARIABLE GITDIRTY
       OUTPUT_STRIP_TRAILING_WHITESPACE)
     if(GITDIRTY)
-      set (UltraNote_VERSION "${GITTAG}")
-      set (UltraNote_GITREV "${GITHASH}-dirty")
+      set (DarwinCoin_VERSION "${GITTAG}")
+      set (DarwinCoin_GITREV "${GITHASH}-dirty")
     else()
-      set (UltraNote_VERSION  "${GITTAG}")
-      set (UltraNote_GITREV "${GITHASH}")
+      set (DarwinCoin_VERSION  "${GITTAG}")
+      set (DarwinCoin_GITREV "${GITHASH}")
     endif()
   endif()
 endif()
 
-if ("${UltraNote_VERSION}" STREQUAL "undefined" OR NOT "${UltraNote_VERSION}")
-  set (UltraNote_VERSION "${UN_VERSION}")
+if ("${DarwinCoin_VERSION}" STREQUAL "undefined" OR NOT "${DarwinCoin_VERSION}")
+  set (DarwinCoin_VERSION "${UN_VERSION}")
 endif ()
 
-string(TIMESTAMP UltraNote_BUILDTIME UTC)
+string(TIMESTAMP DarwinCoin_BUILDTIME UTC)
 
-message( STATUS "Building ${PROJECT_NAME} ${UltraNote_VERSION} ${UltraNote_GITREV} ${UltraNote_BUILDTIME}")
+message( STATUS "Building ${PROJECT_NAME} ${DarwinCoin_VERSION} ${DarwinCoin_GITREV} ${DarwinCoin_BUILDTIME}")
 
 # Note: cryponote expects GIT revision in VERSION variable
-set(VERSION "${UltraNote_VERSION}")
+set(VERSION "${DarwinCoin_VERSION}")
 set(CN_CURRENCY_DISPLAY_NAME ${UN_CURRENCY_DISPLAY_NAME})
 set(CN_CURRENCY_TICKER ${UN_CURRENCY_TICKER})
 configure_file("cryptonote/src/version.h.in" "version.h")
 configure_file("src/CryptoNoteWalletConfig.h.in" "CryptoNoteWalletConfig.h")
 
 # export for C compiler
-add_definitions(-DVERSION=\"${UltraNote_VERSION}\")
-add_definitions(-DGIT_REVISION=\"${UltraNote_GITREV}\")
+add_definitions(-DVERSION=\"${DarwinCoin_VERSION}\")
+add_definitions(-DGIT_REVISION=\"${DarwinCoin_GITREV}\")
 
 # ---------------------------------------------------------------------
 # Collect Build Dependencies
@@ -141,13 +141,13 @@ if ( NOT QT5_ROOT_PATH )
 endif ()
 
 # ---------------------------------------------------------------------
-# Add UltraNote Sources
+# Add DarwinCoin Sources
 #
 
 # Add libqrencode
 include(QREncode.cmake)
 
-# UltraNote Core Library
+# DarwinCoin Core Library
 set(CRYPTONOTE_LIB cryptonote)
 set(CRYPTONOTE_SOURCES
   cryptonote/external/miniupnpc/connecthostport.c
@@ -312,9 +312,9 @@ elseif (UNIX)
     set(MACOSX_BUNDLE_GUI_IDENTIFIER ${UN_IDENTIFIER})
     set(MACOSX_BUNDLE_INFO_STRING ${UN_SUMMARY})
     set(MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME})
-    set(MACOSX_BUNDLE_LONG_VERSION_STRING  "Version ${UltraNote_VERSION}-${UltraNote_GITREV}")
-    set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${UltraNote_VERSION}")
-    set(MACOSX_BUNDLE_BUNDLE_VERSION "${UltraNote_VERSION}")
+    set(MACOSX_BUNDLE_LONG_VERSION_STRING  "Version ${DarwinCoin_VERSION}-${DarwinCoin_GITREV}")
+    set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${DarwinCoin_VERSION}")
+    set(MACOSX_BUNDLE_BUNDLE_VERSION "${DarwinCoin_VERSION}")
     set(MACOSX_BUNDLE_COPYRIGHT "${UN_COPYRIGHT}")
 
     enable_language(ASM)
@@ -344,7 +344,7 @@ add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
 set_target_properties(${CRYPTONOTE_LIB} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES})
 
-# Build UltraNote app
+# Build DarwinCoin app
 add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${QRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${QRENCODE_LIB} Qt5::Gui Qt5::Widgets Qt5::Network)
@@ -362,7 +362,7 @@ endif (APPLE)
 # Installation
 #
 set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
-set(CPACK_PACKAGE_VERSION ${UltraNote_VERSION})
+set(CPACK_PACKAGE_VERSION ${DarwinCoin_VERSION})
 set(CPACK_PACKAGE_VENDOR ${UN_VENDOR})
 set(CPACK_PACKAGE_CONTACT ${UN_CONTACT})
 set(CPACK_PACKAGE_DESCRIPTION ${UN_DESCRIPTION})
@@ -378,9 +378,9 @@ if (APPLE)
 
 elseif (UNIX)
   install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
-  install(FILES src/ultranotewallet.desktop DESTINATION share/applications)
-  install(FILES src/images/cryptonote.png DESTINATION share/pixmaps RENAME ultranote.png)
-  install(FILES COPYING DESTINATION share/doc/ultranotewallet)
+  install(FILES src/darwincoinwallet.desktop DESTINATION share/applications)
+  install(FILES src/images/cryptonote.png DESTINATION share/pixmaps RENAME darwincoin.png)
+  install(FILES COPYING DESTINATION share/doc/darwincoinwallet)
 
 	SET(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 	SET(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
@@ -423,7 +423,7 @@ elseif (WIN32)
   set(CPACK_NSIS_URL_INFO_ABOUT "${UN_CONTACT}")
   set(CPACK_RESOURCE_FILE_LICENSE ${CMAKE_SOURCE_DIR}/COPYING)
   set(CPACK_NSIS_EXECUTABLES_DIRECTORY ".")
-  set(CPACK_NSIS_MENU_LINKS "${UN_CONTACT}" "UltraNote Website")
+  set(CPACK_NSIS_MENU_LINKS "${UN_CONTACT}" "DarwinCoin Website")
 
   add_custom_target(windeployqt ALL
     ${WINDEPLOYQT}
