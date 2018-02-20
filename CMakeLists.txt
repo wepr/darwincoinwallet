@@ -1,4 +1,4 @@
-# UltraNote CMakeList.txt
+# DarwinCoin CMakeList.txt
 #
 # Usage:
 #    cd build/release
@@ -29,7 +29,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
 # load common definitions
-include(UltraNoteWallet.cmake)
+include(DarwinCoinWallet.cmake)
 project(${UN_PROJECT_NAME} C CXX)
 
 # One shouldn't generate the BUILD project directly in the SOURCES folder!
